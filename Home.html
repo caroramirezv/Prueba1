@@ -31,131 +31,230 @@
         </div>
     </nav>
 
-    <div class="container my-4">
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner rounded">
-                <div class="carousel-item active">
-                    <img src="img/Carrusel1.png" class="d-block w-100" alt="Banner 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/Carrusel2.png" class="d-block w-100" alt="Banner 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/Carrusel3.png" class="d-block w-100" alt="Banner 3">
-                </div>
+    <div class="container-fluid p-0">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/Carrusel1.png" class="d-block w-100 carousel-banner-img" alt="Banner 1">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-            </button>
+            <div class="carousel-item">
+                <img src="img/Carrusel2.png" class="d-block w-100 carousel-banner-img" alt="Banner 2">
+            </div>
+            <div class="carousel-item">
+                <img src="img/Carrusel3.png" class="d-block w-100 carousel-banner-img" alt="Banner 3">
+            </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
     </div>
+</div>
 
     <div class="container my-5">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
             
-            <div class="col">
-                <div class="card">
-                    <img src="img/rtx3080.jpg" class="card-img-top" alt="RTX 3080">
-                    <div class="card-body">
-                        <h5 class="card-title">RTX 3080</h5>
-                        <p class="card-text fw-bold text-primary">$409.990</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
+           <div class="col">
+            <div class="card">
+            <img src="img/rtx3080.jpg" class="card-img-top" alt="RTX 3080">
+        
+            <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar"
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
             <div class="col">
-                <div class="card">
-                    <img src="img/monitor.jpg" class="card-img-top" alt="Monitor 4K">
-                    <div class="card-body">
-                        <h5 class="card-title">Monitor 4K</h5>
-                        <p class="card-text fw-bold text-primary">$437.990</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
+            <div class="card">
+            <img src="img/monitor.jpg" class="card-img-top" alt="Monitor">
+        
+        <div class="card-body">
+              <h5 class="card-title">Monitor Zowie</h5>
+              <p class="card-text fw-bold text-primary">$356.980</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
             <div class="col">
-                <div class="card">
-                    <img src="img/mouse logitech.jpg" class="card-img-top" alt="Mouse Logitech">
-                    <div class="card-body">
-                        <h5 class="card-title">Mouse Logitech SuperLight 2</h5>
-                        <p class="card-text fw-bold text-primary">$189.990</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
+            <div class="card">
+            <img src="img/switch2.avif" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
             <div class="col">
-                <div class="card">
-                    <img src="img/refrigeracionLiquida.jpg" class="card-img-top" alt="Refrigeracion Liquida">
-                    <div class="card-body">
-                        <h5 class="card-title">Refrigeracion Liquida Corsair</h5>
-                        <p class="card-text fw-bold text-primary">$259.990</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
+            <div class="card">
+            <img src="img/mouse logitech.jpg" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
             <div class="col">
-                <div class="card">
-                    <img src="img/audifonosRazer.jpg" class="card-img-top" alt="Audifonos Razer">
-                    <div class="card-body">
-                        <h5 class="card-title">Audifonos Razer</h5>
-                        <p class="card-text fw-bold text-primary">$189.990</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
+            <div class="card">
+            <img src="img/audifonosRazer.jpg" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
             <div class="col">
-                <div class="card">
-                    <img src="img/proceRyzen7.jpg" class="card-img-top" alt="Procesador Ryzen">
-                    <div class="card-body">
-                        <h5 class="card-title">Procesador Ryzen 7 5600</h5>
-                        <p class="card-text fw-bold text-primary">$350.000</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
+            <div class="card">
+            <img src="img/proceRyzen7.jpg" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+           <div class="col">
+            <div class="card">
+            <img src="img/refrigeracionLiquida.jpg" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
             <div class="col">
-                <div class="card">
-                    <img src="img/notebookGamer.webp" class="card-img-top" alt="Lenovo Legion">
-                    <div class="card-body">
-                        <h5 class="card-title">Lenovo Legion Pro 5</h5>
-                        <p class="card-text fw-bold text-primary">$2.159.990</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
+            <div class="card">
+            <img src="img/notebookGamer.webp" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-            <div class="col">
-                <div class="card">
-                    <img src="img/switch2.avif" class="card-img-top" alt="Nintendo Switch">
-                    <div class="card-body">
-                        <h5 class="card-title">Nintendo Switch 2 256GB</h5>
-                        <p class="card-text fw-bold text-primary">$556.990</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                    <img src="img/soundBar.png" class="card-img-top" alt="Soundbar JBL">
-                    <div class="card-body">
-                        <h5 class="card-title">JBL Cinema SB510</h5>
-                        <p class="card-text fw-bold text-primary">$119.990</p>
-                        <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                    </div>
-                </div>
-            </div>
+          <div class="col">
+            <div class="card">
+            <img src="img/tecladoLogitech.png" class="card-img-top" alt="RTX 3080">
+        
+            <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
         </div>
     </div>

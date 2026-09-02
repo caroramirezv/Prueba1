@@ -57,3 +57,7 @@ footer {
 #carouselExample .carousel-control-next:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
+.carousel-banner-img {
+    height: 400px; 
+    object-fit: cover;
+}
