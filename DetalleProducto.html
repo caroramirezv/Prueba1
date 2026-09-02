@@ -10,54 +10,63 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h1>CLstore</h1>
-<div class="d-flex align-items-start gap-4">    
-
-<div class="border rounded p-3 shadow-sm" style= "width: 500px; height: 500px;" >
- <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/rtx.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/rtx2.webp" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/rtx3.webp" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</div>
-<div>
-<p> Tarjeta de video Nvidia GeForce 5090 12GB VRAM. </p>
-  </div>
-
-</div>
-<div>
-    <h2 class="fw-bold">Nvidia GeForce 5090</h2>
-    <p class="fw-semibold fs-5">
-      Tarjeta de video Nvidia GeForce 5090 12GB VRAM.
-    </p>
-  </div>
-
-</div>
-<div class="border rounded p-3 shadow-sm" style= "width: 500px; height: 500px;" >
-<table class="table">
   
-   
- 
-  <tbody>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/Logo.png" alt="logo" height="70px" width="120px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="Blogs.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="Carrito.html">Carrito</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row g-4">
+      <div class="col-md-5">
+        <div class="border rounded p-3 shadow-sm bg-white">
+          <div id="productCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/rtx.jpg" class="d-block w-100" alt="GPU 1">
+              </div>
+              <div class="carousel-item">
+                <img src="img/rtx2.webp" class="d-block w-100" alt="GPU 2">
+              </div>
+              <div class="carousel-item">
+                <img src="img/rtx3.webp" class="d-block w-100" alt="GPU 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h2 class="fw-bold">Nvidia GeForce 5090</h2>
+        <p class="text-secondary fw-semibold fs-5">
+          Tarjeta de video Nvidia GeForce 5090 12GB VRAM.
+        </p>
+
+    <div class="border rounded p-3 shadow-sm bg-white">
+    <table class="table mb-0">
+    <tbody>
     <tr>
       <th scope="row">Color</th>
-      <td>Mamba Negra</td>
+      <td>Negro</td>
  
     </tr>
     <tr>
@@ -108,6 +117,55 @@
   </tbody>
 </table>
 </div>
+<a class="btn btn-primary" href="Carrito.html" role="button" style= "width: 400px;background-color: rgb(255, 217, 0); color: black;">Agregar al carrito</a>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h3 class="fw-bold mb-4">Reseñas</h3>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fw-bold">Carlos M.</h5>
+              <span class="text-warning">⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="card-text mt-2">Una potencia increíble, corre cualquier juego en 4K sin despeinarse. Totalmente recomendada.</p>
+          </div>
+        </div>
+        <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fw-bold">Carlos M.</h5>
+              <span class="text-warning">⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="card-text mt-2">Una potencia increíble, corre cualquier juego en 4K sin despeinarse. Totalmente recomendada.</p>
+          </div>
+        </div>
+        <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fw-bold">Carlos M.</h5>
+              <span class="text-warning">⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="card-text mt-2">Una potencia increíble, corre cualquier juego en 4K sin despeinarse. Totalmente recomendada.</p>
+          </div>
+        </div>
+
+      
+
+
+
+  
+   
+ 
+ 
 
 
     
