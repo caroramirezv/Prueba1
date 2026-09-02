@@ -10,288 +10,347 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" >
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="img/Logo.png" alt="logo" height="70px" width="120px"></a>
+            <a class="navbar-brand" href="index.html">
+                <img src="img/Logo.png" alt="logo" height="50">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Productos.html">Productos</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Nosotros.html">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Blogs.html">Blogs</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Contacto.html">Contacto</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Carrito.html">Carrito</a>
-                </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Carrito.html">Carrito</a></li>
                 </ul>
-            </ul>
             </div>
         </div>
-        </nav>
-<div class="container">
+    </nav>
+
+    <div class="container-fluid p-0">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                <img src="img/Carrusel1.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                <img src="img/Carrusel2.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                <img src="img/Carrusel3.png" class="d-block w-100" alt="...">
-                </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/Carrusel1.png" class="d-block w-100 carousel-banner-img" alt="Banner 1">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <div class="carousel-item">
+                <img src="img/Carrusel2.png" class="d-block w-100 carousel-banner-img" alt="Banner 2">
+            </div>
+            <div class="carousel-item">
+                <img src="img/Carrusel3.png" class="d-block w-100 carousel-banner-img" alt="Banner 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+</div>
+
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+            
+           <div class="col">
+            <div class="card">
+            <img src="img/rtx3080.jpg" class="card-img-top" alt="RTX 3080">
+        
+            <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar"
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <div class="col">
+            <div class="card">
+            <img src="img/monitor.jpg" class="card-img-top" alt="Monitor">
+        
+        <div class="card-body">
+              <h5 class="card-title">Monitor Zowie</h5>
+              <p class="card-text fw-bold text-primary">$356.980</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <div class="col">
+            <div class="card">
+            <img src="img/switch2.avif" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <div class="col">
+            <div class="card">
+            <img src="img/mouse logitech.jpg" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <div class="col">
+            <div class="card">
+            <img src="img/audifonosRazer.jpg" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <div class="col">
+            <div class="card">
+            <img src="img/proceRyzen7.jpg" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+           <div class="col">
+            <div class="card">
+            <img src="img/refrigeracionLiquida.jpg" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <div class="col">
+            <div class="card">
+            <img src="img/notebookGamer.webp" class="card-img-top" alt="RTX 3080">
+        
+        <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col">
+            <div class="card">
+            <img src="img/tecladoLogitech.png" class="card-img-top" alt="RTX 3080">
+        
+            <div class="card-body">
+              <h5 class="card-title">RTX 3080</h5>
+              <p class="card-text fw-bold text-primary">$409.990</p>
+            
+              <div class="d-grid gap-2">
+                  <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
+                  <button class="btn btn-primary btn-agregar" 
+                          data-id="rtx3080" 
+                          data-nombre="RTX 3080" 
+                          data-precio="409990" 
+                          data-imagen="img/rtx3080.jpg">
+                      Agregar al Carrito
+                  </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <img src="img/audifonosRazer.jpg" class="card-img-top" alt="Audifonos Razer">
+                                <div class="card-body">
+                                    <h5 class="card-title">Audifonos Razer</h5>
+                                    <p class="card-text fw-bold text-primary">$189.990</p>
+                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <img src="img/rtx3080.jpg" class="card-img-top" alt="RTX 3080">
+                                <div class="card-body">
+                                    <h5 class="card-title">RTX 3080</h5>
+                                    <p class="card-text fw-bold text-primary">$409.990</p>
+                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <img src="img/mouse logitech.jpg" class="card-img-top" alt="Mouse Logitech">
+                                <div class="card-body">
+                                    <h5 class="card-title">Mouse Logitech SuperLight 2</h5>
+                                    <p class="card-text fw-bold text-primary">$189.990</p>
+                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <img src="img/proceRyzen7.jpg" class="card-img-top" alt="Ryzen 7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Procesador Ryzen 7 5600</h5>
+                                    <p class="card-text fw-bold text-primary">$350.000</p>
+                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <img src="img/refrigeracionLiquida.jpg" class="card-img-top" alt="Refrigeracion Liquida">
+                                <div class="card-body">
+                                    <h5 class="card-title">Refrigeracion Liquida Corsair</h5>
+                                    <p class="card-text fw-bold text-primary">$259.990</p>
+                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <img src="img/tecladoLogitech.png" class="card-img-top" alt="Teclado Logitech">
+                                <div class="card-body">
+                                    <h5 class="card-title">Teclado Logitech G PRO X60</h5>
+                                    <p class="card-text fw-bold text-primary">$199.990</p>
+                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden">Siguiente</span>
             </button>
         </div>
-</div>
+    </div>
 
-<div class="container">
-    <table class="table table-borderless">
-  <thead>
-    <tr>
-      <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">RTX 3080</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Detalles</a>
+    <footer>
+        <div class="container">
+            <p class="mb-1">© 2026 CLstore. Todos los derechos reservados.</p>
+            <a href="Contacto.html" >Contacto</a>
         </div>
-    </div>
-      </th>
-      <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Monitor 4K</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </th>
-      <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Mouse Logitech SuperLight 2</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </td>
-      <td>
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </td>
-      <td>
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-</div>
+    </footer>
 
-<div class="container">
-    <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="row align-items-end">
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-
-    </div>
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-      
-    </div>
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-
-    </div>
-  </div>
-    </div>
-    <div class="carousel-item">
-      <div class="row align-items-end">
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-
-    </div>
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-
-    </div>
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-
-    </div>
-  </div>
-    </div>
-    <div class="carousel-item">
-      <div class="row align-items-end">
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-
-    </div>
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-
-    </div>
-    <div class="col">
-
-        <th scope="col">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-      </th>
-
-    </div>
-  </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</div>
-
-
-
-<footer>
-  <p>© 2026 CLstore. Todos los derechos reservados.</p>
-  <a href="Contacto.html">Contacto</a>
-</footer>      
 </body>
 </html>
