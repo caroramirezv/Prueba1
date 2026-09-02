@@ -6,6 +6,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <style>
       .col-mensaje {
     width: 40%;
@@ -27,71 +28,46 @@
             width: 60%;
         }
 
+  p {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+}
+
     </style>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-
-    <div class="container-fluid">
-
-      <a class="navbar-brand" href="index.html"><img src="img/pollo-camina.gif" alt="logo" height="70px" width="50px"></a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-      <span class="navbar-toggler-icon"></span>
-
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <li class="nav-item">
-
-        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-
-        </li>
-
-        <li class="nav-item">
-
-        <a class="nav-link" href="Home.html">Home</a>
-
-        </li>
-
-        <li class="nav-item">
-
-        <a class="nav-link" href="Productos.html">Productos</a>
-
-        </li>
-
-        <li class="nav-item">
-
-        <a class="nav-link" href="Nosotros.html">Nosotros</a>
-
-        </li>
-
-        <li class="nav-item">
-
-        <a class="nav-link" href="Blogs.html">Blogs</a>
-
-        </li>
-
-        <li class="nav-item">
-
-        <a class="nav-link" href="Contacto.html">Contacto</a>
-
-        </li>
-
-        </ul>
-
-      </ul>
-
-      </div>
-
-    </div>
-
-    </nav>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="img/Logo.png" alt="logo" height="70px" width="120px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="Productos.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="Nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="Blogs.html">Blogs</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="Contacto.html">Contacto</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="Carrito.html">Carrito</a>
+                </li>
+                </ul>
+            </ul>
+            </div>
+        </div>
+        </nav>
 
     
         <h1 style="text-align:center"> Contacta con nosotros </h1>
@@ -114,6 +90,7 @@
   </p>
     </td>
     <td class="col-formulario">
+  <form id="formContacto" class="row g-3"></form>
   <form class="row g-3">
     
     <div class="col-md-6 d-flex flex-column gap-3">
@@ -124,16 +101,16 @@
 
       <div>
         <label for="emailInput" class="form-label">Email</label>
-        <input type="email" class="form-control" id="emailInput" placeholder="juan@duoc.cl" maxlength="100" pattern="[a-zA-Z0-9._%+\-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)" title="Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com" required>
+        <input type="email" class="form-control" id="emailInput" placeholder="juan@duoc.cl" maxlength="100" pattern="[a-zA-Z0-9._%+\-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)" title="Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com" >
       </div>
 
     <div class="col-md-6 d-flex flex-column">
-      <label for="mensajeInput" class="form-label">Mensaje</label>
-      <textarea class="form-control flex-grow-1" id="mensajeInput" placeholder="Tu Mensaje..." style="min-height: 150px; resize: none;" required></textarea>
+      <label for="mensajeInput" class="form-label">Comentario</label>
+      <textarea class="form-control flex-grow-1" id="mensajeInput" placeholder="Tu Comentario..." maxlength="500" style="min-height: 150px; resize: none;" required></textarea>
     </div>
 
     <div class="col-12 text-center mt-4">
-      <button type="submit" class="btn" style="background-color: #800000; color: white; padding: 10px 40px; font-weight: bold;">Enviado</button>
+      <button type="button" id="btnEnviar" class="btn" style="background-color: #800000; color: white; padding: 10px 40px; font-weight: bold;">Enviado</button>
     </div>
 
   </form>
@@ -157,6 +134,39 @@
                 <p style="text-align:center"> Calle Moneda 970, Piso 5, Santiago Centro, Santiago.       </p> 
                             <p style="text-align:center"> Teléfono: +56 9 6158 4239 </p>
 
+
+<script>
+document.getElementById('btnEnviar').addEventListener('click', function() {
     
-</body>
+    const nombre = document.getElementById('nombreInput').value;
+    const email = document.getElementById('emailInput').value;
+    const mensaje = document.getElementById('mensajeInput').value;
+
+    
+    if (!nombre || !email || !mensaje) {
+        alert('Por favor completa todos los campos.');
+        return;
+    }
+
+    
+    const nuevoContacto = {
+        id: Date.now(),
+        nombre: nombre,
+        email: email,
+        mensaje: mensaje,
+        fecha: new Date().toLocaleString()
+    };
+
+    
+    let contactos = JSON.parse(localStorage.getItem('contactos_clstore')) || [];
+    contactos.push(nuevoContacto);
+
+    
+    localStorage.setItem('contactos_clstore', JSON.stringify(contactos));
+    
+    document.getElementById('nombreInput').value = '';
+    document.getElementById('emailInput').value = '';
+    document.getElementById('mensajeInput').value = '';
+});
+</script>
 </html>
