@@ -30,34 +30,33 @@ footer {
     justify-content: space-between;
     flex-grow: 1;
 }
-#carouselExample {
-    padding: 0 60px;
-    position: relative;
+
+:root {
+    --primary-color: #0d6efd;
+    --bg-light: #f8f9fa;
 }
 
-#carouselExample .carousel-control-prev,
-#carouselExample .carousel-control-next {
-    width: 40px;
-    height: 40px;
-    top: 50%;
-    transform: translateY(-50%); 
-    background-color: rgba(0, 0, 0, 0.1); 
-    border-radius: 50%; 
-}
-
-#carouselExample .carousel-control-prev {
-    left: 10px;
-}
-
-#carouselExample .carousel-control-next {
-    right: 10px;
-}
-
-#carouselExample .carousel-control-prev:hover,
-#carouselExample .carousel-control-next:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-}
 .carousel-banner-img {
-    height: 400px; 
+    max-height: 500px;
     object-fit: cover;
+}
+
+
+.card-product {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.card-product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-product img {
+    height: 200px;
+    object-fit: contain;
+    padding: 1rem;
+    background-color: #fff;
 }

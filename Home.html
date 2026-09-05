@@ -8,332 +8,296 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="img/Logo.png" alt="logo" height="50">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="img/Logo.png" alt="logo" height="40">
+                <span class="fw-bold">CLstore</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="Home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="Blogs.html">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Carrito.html">Carrito</a></li>
                 </ul>
+                <a href="Carrito.html" class="btn btn-primary rounded-pill ms-lg-3 d-none d-lg-inline-block">
+                    <i class="fa-solid fa-cart-shopping me-1"></i> Carrito
+                </a>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid p-0">
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/Carrusel1.png" class="d-block w-100 carousel-banner-img" alt="Banner 1">
-            </div>
-            <div class="carousel-item">
-                <img src="img/Carrusel2.png" class="d-block w-100 carousel-banner-img" alt="Banner 2">
-            </div>
-            <div class="carousel-item">
-                <img src="img/Carrusel3.png" class="d-block w-100 carousel-banner-img" alt="Banner 3">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-        </button>
-    </div>
-</div>
-
-    <div class="container my-5">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-        
-        <div class="col">
-            <div class="card">
-                <img src="img/rtx3080.jpg" class="card-img-top" alt="RTX 3080">
-                <div class="card-body">
-                    <h5 class="card-title">RTX 3080</h5>
-                    <p class="card-text fw-bold text-primary">$409.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="rtx3080" 
-                                data-nombre="RTX 3080" 
-                                data-precio="409990" 
-                                data-imagen="img/rtx3080.jpg">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="img/monitor.jpg" class="card-img-top" alt="Monitor Zowie">
-                <div class="card-body">
-                    <h5 class="card-title">Monitor Zowie</h5>
-                    <p class="card-text fw-bold text-primary">$1.590.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="monitorZowie" 
-                                data-nombre="Monitor Zowie" 
-                                data-precio="1590990" 
-                                data-imagen="img/monitor.jpg">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="img/switch2.avif" class="card-img-top" alt="Switch 2 265GB">
-                <div class="card-body">
-                    <h5 class="card-title">Switch 2 265GB</h5>
-                    <p class="card-text fw-bold text-primary">$556.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="switch2" 
-                                data-nombre="Switch 2 265GB" 
-                                data-precio="556990" 
-                                data-imagen="img/switch2.avif">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="img/mouse logitech.jpg" class="card-img-top" alt="Mouse Logitech SuperLight 2">
-                <div class="card-body">
-                    <h5 class="card-title">Mouse Logitech SuperLight 2</h5>
-                    <p class="card-text fw-bold text-primary">$409.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="mouseLogitech" 
-                                data-nombre="Mouse Logitech SuperLight 2" 
-                                data-precio="409990" 
-                                data-imagen="img/mouse logitech.jpg">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="img/audifonosRazer.jpg" class="card-img-top" alt="Audifonos Razer Gengar">
-                <div class="card-body">
-                    <h5 class="card-title">Audifonos Razer Gengar</h5>
-                    <p class="card-text fw-bold text-primary">$409.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="audifonosRazer" 
-                                data-nombre="Audifonos Razer Gengar" 
-                                data-precio="409990" 
-                                data-imagen="img/audifonosRazer.jpg">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="img/proceRyzen7.jpg" class="card-img-top" alt="Ryzen 7 5600">
-                <div class="card-body">
-                    <h5 class="card-title">Ryzen 7 5600</h5>
-                    <p class="card-text fw-bold text-primary">$409.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="ryzen7" 
-                                data-nombre="Ryzen 7 5600" 
-                                data-precio="409990" 
-                                data-imagen="img/proceRyzen7.jpg">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="img/refrigeracionLiquida.jpg" class="card-img-top" alt="Refrigeracion Liquida Corsair">
-                <div class="card-body">
-                    <h5 class="card-title">Refrigeracion Liquida Corsair</h5>
-                    <p class="card-text fw-bold text-primary">$409.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="refriCorsair" 
-                                data-nombre="Refrigeracion Liquida Corsair" 
-                                data-precio="409990" 
-                                data-imagen="img/refrigeracionLiquida.jpg">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="img/notebookGamer.webp" class="card-img-top" alt="Notebook Legion PRO">
-                <div class="card-body">
-                    <h5 class="card-title">Notebook Legion PRO</h5>
-                    <p class="card-text fw-bold text-primary">$409.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="notebookLegion" 
-                                data-nombre="Notebook Legion PRO" 
-                                data-precio="409990" 
-                                data-imagen="img/notebookGamer.webp">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col">
-            <div class="card">
-                <img src="img/tecladoLogitech.png" class="card-img-top" alt="Teclado Logitech G PRO X60">
-                <div class="card-body">
-                    <h5 class="card-title">Teclado Logitech G PRO X60</h5>
-                    <p class="card-text fw-bold text-primary">$409.990</p>
-                    <div class="d-grid gap-2">
-                        <a href="DetalleProducto.html" class="btn btn-outline-primary">Más Información</a>
-                        <button class="btn btn-primary btn-agregar" 
-                                data-id="tecladoLogitech" 
-                                data-nombre="Teclado Logitech G PRO X60" 
-                                data-precio="409990" 
-                                data-imagen="img/tecladoLogitech.png">
-                            Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-    <div class="container my-5">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="container-fluid p-0">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                
                 <div class="carousel-item active">
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                        <div class="col">
-                            <div class="card">
-                                <img src="img/audifonosRazer.jpg" class="card-img-top" alt="Audifonos Razer">
-                                <div class="card-body">
-                                    <h5 class="card-title">Audifonos Razer</h5>
-                                    <p class="card-text fw-bold text-primary">$189.990</p>
-                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <img src="img/rtx3080.jpg" class="card-img-top" alt="RTX 3080">
-                                <div class="card-body">
-                                    <h5 class="card-title">RTX 3080</h5>
-                                    <p class="card-text fw-bold text-primary">$409.990</p>
-                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <img src="img/mouse logitech.jpg" class="card-img-top" alt="Mouse Logitech">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mouse Logitech SuperLight 2</h5>
-                                    <p class="card-text fw-bold text-primary">$189.990</p>
-                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="img/Carrusel1.png" class="d-block w-100 carousel-banner-img" alt="Banner 1">
                 </div>
-
                 <div class="carousel-item">
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                        <div class="col">
-                            <div class="card">
-                                <img src="img/proceRyzen7.jpg" class="card-img-top" alt="Ryzen 7">
-                                <div class="card-body">
-                                    <h5 class="card-title">Procesador Ryzen 7 5600</h5>
-                                    <p class="card-text fw-bold text-primary">$350.000</p>
-                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <img src="img/refrigeracionLiquida.jpg" class="card-img-top" alt="Refrigeracion Liquida">
-                                <div class="card-body">
-                                    <h5 class="card-title">Refrigeracion Liquida Corsair</h5>
-                                    <p class="card-text fw-bold text-primary">$259.990</p>
-                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <img src="img/tecladoLogitech.png" class="card-img-top" alt="Teclado Logitech">
-                                <div class="card-body">
-                                    <h5 class="card-title">Teclado Logitech G PRO X60</h5>
-                                    <p class="card-text fw-bold text-primary">$199.990</p>
-                                    <a href="DetalleProducto.html" class="btn btn-primary w-100">Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="img/Carrusel2.png" class="d-block w-100 carousel-banner-img" alt="Banner 2">
                 </div>
-
+                <div class="carousel-item">
+                    <img src="img/Carrusel3.png" class="d-block w-100 carousel-banner-img" alt="Banner 3">
+                </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </button>
         </div>
     </div>
 
-    <footer>
-        <div class="container">
+    <div class="container my-5">
+        <h2 class="fw-bold mb-4 text-center">Productos Destacados</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+            
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/rtx3080.jpg" class="card-img-top" alt="RTX 3080">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">RTX 3080</h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$409.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="rtx3080" 
+                                    data-nombre="RTX 3080" 
+                                    data-precio="409990" 
+                                    data-imagen="img/rtx3080.jpg">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/monitor.jpg" class="card-img-top" alt="Monitor Zowie">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">Monitor Zowie</h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$1.590.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="monitorZowie" 
+                                    data-nombre="Monitor Zowie" 
+                                    data-precio="1590990" 
+                                    data-imagen="img/monitor.jpg">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/switch2.avif" class="card-img-top" alt="Switch 2 265GB">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">Switch 2 256GB</h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$556.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="switch2" 
+                                    data-nombre="Switch 2 256GB" 
+                                    data-precio="556990" 
+                                    data-imagen="img/switch2.avif">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/notebookGamer.webp" class="card-img-top" alt="Switch 2 265GB">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">Notebook Gamer Legion</h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$1.290.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="switch2" 
+                                    data-nombre="Switch 2 256GB" 
+                                    data-precio="556990" 
+                                    data-imagen="img/switch2.avif">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/proceRyzen7.jpg" class="card-img-top" alt="Switch 2 265GB">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">Procesador Ryzen 7 </h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$346.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="switch2" 
+                                    data-nombre="Switch 2 256GB" 
+                                    data-precio="556990" 
+                                    data-imagen="img/switch2.avif">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/refrigeracionLiquida.jpg" class="card-img-top" alt="Switch 2 265GB">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">Refrigeracion Liquida Corsair</h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$250.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="switch2" 
+                                    data-nombre="Switch 2 256GB" 
+                                    data-precio="556990" 
+                                    data-imagen="img/switch2.avif">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/tecladoLogitech.png" class="card-img-top" alt="Switch 2 265GB">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">Teclado Logitech PRO X60</h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$189.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="switch2" 
+                                    data-nombre="Switch 2 256GB" 
+                                    data-precio="556990" 
+                                    data-imagen="img/switch2.avif">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/mouse logitech.jpg" class="card-img-top" alt="Switch 2 265GB">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">Logitech Superlight 2</h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$245.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="switch2" 
+                                    data-nombre="Switch 2 256GB" 
+                                    data-precio="556990" 
+                                    data-imagen="img/switch2.avif">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card-product shadow-sm">
+                    <img src="img/audifonosRazer.jpg" class="card-img-top" alt="Switch 2 265GB">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">Audifonos Razer Gengar</h5>
+                            <p class="card-text fs-4 fw-bold text-primary">$282.990</p>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="DetalleProducto.html" class="btn btn-outline-secondary rounded-pill">Más Información</a>
+                            <button class="btn btn-primary rounded-pill btn-agregar" 
+                                    data-id="switch2" 
+                                    data-nombre="Switch 2 256GB" 
+                                    data-precio="556990" 
+                                    data-imagen="img/switch2.avif">
+                                <i class="fa-solid fa-cart-plus me-1"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="mobile-nav justify-content-around">
+        <a href="Home.html" class="active">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="Productos.html">
+            <i class="fa-solid fa-box-open"></i>
+            <span>Catálogo</span>
+        </a>
+        <a href="Carrito.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Carrito</span>
+        </a>
+        <a href="Contacto.html">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Contacto</span>
+        </a>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
             <p class="mb-1">© 2026 CLstore. Todos los derechos reservados.</p>
-            <a href="Contacto.html" >Contacto</a>
+            <a href="Contacto.html" class="text-white-50 text-decoration-none">Contacto</a>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
