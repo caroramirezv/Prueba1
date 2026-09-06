@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="img/Logo.png" alt="logo" height="40">
+                <span class="fw-bold">CLstore</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+                </ul>
+                <a href="Carrito.html" class="btn btn-primary rounded-pill ms-lg-3 d-none d-lg-inline-block">
+                    <i class="fa-solid fa-cart-shopping me-1"></i> Carrito
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <h1 class="text-center mb-5 fw-bold text-uppercase">NOTICIAS IMPORTANTES</h1>
+
+        <div class="d-flex flex-column gap-4">
+            
+            
+            <article class="card blog-card shadow-sm border-dark">
+    <div class="row g-0 align-items-center">
+        <div class="col-md-7 p-4 d-flex flex-column justify-content-between h-100">
+            <div>
+                <h2 class="fw-bold mb-3">DLSS 5 y la polémica del "efecto película"</h2>
+                <p class="card-text text-muted">
+                    NVIDIA desató un intenso debate al prometer transformar los videojuegos en producciones cinematográficas. Probamos la tecnología en NBA 2K27 y te contamos por qué la realidad es mucho más sutil de lo que parece.
+                </p>
+                </p>
+            </div>
+            <div class="mt-4">
+                <!-- Enlace a la noticia de Xataka en una pestaña nueva -->
+                <a href="https://www.xataka.com/videojuegos/dlss-5-desato-polemica-convertir-videojuegos-peliculas-hemos-probado-nba-2k27-realidad-mucho-sutil"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-dark fw-bold px-4 rounded-0 shadow-sm">
+                    VER CASO
+                </a>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="blog-img-wrapper border-start border-dark">
+                <img src="img/blog.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="NVIDIA RTX Serie 50">
+            </div>
+        </div>
+    </div>
+</article>
+
+            
+        <article class="card blog-card shadow-sm border-dark">
+    <div class="row g-0 align-items-center">
+        <div class="col-md-7 p-4 d-flex flex-column justify-content-between h-100">
+            <div>
+                <h2 class="fw-bold mb-3">CASO CURIOSO #2: Monitores OLED y el mito del "Burn-In"</h2>
+                <p class="card-text text-muted">
+                    El "burn-in" o marcado permanente en monitores OLED ya no es un fallo inminente, sino un desgaste físico real de los píxeles que hoy se mitiga de forma muy efectiva, aunque persisten ciertos riesgos en usos extremos.
+                </p>
+            </div>
+            <div class="mt-4">
+                <a href="https://www.xataka.com/seleccion/hablemos-quemados-teles-oled-2026-siguen-siendo-problema-quedo-pasado"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-dark fw-bold px-4 rounded-0 shadow-sm">
+                    VER CASO
+                </a>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="blog-img-wrapper border-start border-dark">
+                <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80" class="img-fluid w-100 h-100 object-fit-cover" alt="Monitor Gaming OLED">
+            </div>
+        </div>
+    </div>
+</article>
+
+        </div>
+    </main>
+    
+
+
+
+</body>
+</html>
