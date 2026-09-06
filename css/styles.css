@@ -48,7 +48,7 @@ footer {
     height: 40px;
     top: 50%;
     transform: translateY(-50%); 
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(0, 0, 0, 0.1); 
     border-radius: 50%; 
 }
 
@@ -62,26 +62,10 @@ footer {
 
 #carouselExample .carousel-control-prev:hover,
 #carouselExample .carousel-control-next:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
+
 .carousel-banner-img {
-    height: 400px; 
+    max-height: 500px;
     object-fit: cover;
-}
-.fondo-tabla {
-    background-color: #1a1a1f; 
-}
-.img-carrusel-producto {
-    height: 350px !important;
-    width: 100%;
-    object-fit: contain;
-}
-footer {
-    width: 100%;
-    clear: both;
-    background-color: #161619;
-    color: #ffffff;
-    padding: 2rem 0;
-    text-align: center;
-    margin-top: 5rem;
 }

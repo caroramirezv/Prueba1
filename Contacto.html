@@ -37,136 +37,127 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary" >
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="img/Logo.png" alt="logo" height="70px" width="120px"></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="img/Logo.png" alt="logo" height="40">
+                <span class="fw-bold">CLstore</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Productos.html">Productos</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Nosotros.html">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Blogs.html">Blogs</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Contacto.html">Contacto</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Carrito.html">Carrito</a>
-                </li>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
                 </ul>
-            </ul>
+                <a href="Carrito.html" class="btn btn-primary rounded-pill ms-lg-3 d-none d-lg-inline-block">
+                    <i class="fa-solid fa-cart-shopping me-1"></i> Carrito
+                </a>
             </div>
         </div>
-        </nav>
+    </nav>
 
     
-        <h1 style="text-align:center"> Contacta con nosotros </h1>
-        <br>
-        <br>
-        <br>
         
 
-  <table class="tabla-contacto">
-  <tr>
-    
-    <td class="col-mensaje">
-      <p>Ponte en contacto con <br>
-     Nosotros para cualquier duda <br>
-     que puedas tener sobre como tener <br>
-     tus productos en Clstore o si tienes <br>
-     alguna sugerencia, nos encanta escucharte <br>
-     <br>
-     responderemos a la mayor brevedad posible
-  </p>
-    </td>
-    <td class="col-formulario">
-  <form id="formContacto" class="row g-3"></form>
-  <form class="row g-3">
-    
-    <div class="col-md-6 d-flex flex-column gap-3">
-      <div>
-        <label for="nombreInput" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombreInput" placeholder="Juan Pérez" maxlength="100" required>
-      </div>
+<div class="container my-5">
+  <h1 class="text-center mb-5 fw-bold" style="color: #212529;">Contacta con nosotros</h1>
 
-      <div>
-        <label for="emailInput" class="form-label">Email</label>
-        <input type="email" class="form-control" id="emailInput" placeholder="juan@duoc.cl" maxlength="100" pattern="[a-zA-Z0-9._%+\-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)" title="Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com" >
+  <div class="row g-4 align-items-stretch">
+    <div class="col-lg-5">
+      <div class="p-4 rounded-3 h-100 shadow text-white d-flex flex-column justify-content-center" style="background-color: #212529; border-top: 4px solid #800000;">
+        <h2 class="h4 mb-3 fw-bold text-white">¿Tienes alguna duda o sugerencia?</h2>
+        <p class="text-light leading-relaxed mb-0" style="opacity: 0.9;">
+          Ponte en contacto con nosotros para cualquier consulta sobre cómo publicar tus productos en <strong class="text-white">Clstore</strong> o para compartir tus comentarios. ¡Nos encanta escucharte y responderemos a la mayor brevedad posible!
+        </p>
       </div>
-
-    <div class="col-md-6 d-flex flex-column">
-      <label for="mensajeInput" class="form-label">Comentario</label>
-      <textarea class="form-control flex-grow-1" id="mensajeInput" placeholder="Tu Comentario..." maxlength="500" style="min-height: 150px; resize: none;" required></textarea>
     </div>
 
-    <div class="col-12 text-center mt-4">
-      <button type="button" id="btnEnviar" class="btn" style="background-color: #800000; color: white; padding: 10px 40px; font-weight: bold;">Enviado</button>
+    <div class="col-lg-7">
+      <form id="formContacto" class="p-4 rounded-3 shadow text-white" style="background-color: #212529; border-top: 4px solid #800000;">
+        <div class="mb-3">
+          <label for="nombreInput" class="form-label fw-bold">Nombre</label>
+          <input type="text" class="form-control border-0" id="nombreInput" placeholder="Ej: Juan Pérez" maxlength="100" style="background-color: #fdf6e2; color: #212529;" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="emailInput" class="form-label fw-bold">Email</label>
+          <input type="email" class="form-control border-0" id="emailInput" placeholder="juan@duoc.cl" maxlength="100" pattern="[a-zA-Z0-9._%+\-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)" title="Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com" style="background-color: #fdf6e2; color: #212529;" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="mensajeInput" class="form-label fw-bold">Comentario</label>
+          <textarea class="form-control border-0" id="mensajeInput" placeholder="Tu comentario..." maxlength="500" rows="5" style="background-color: #fdf6e2; color: #212529;" required></textarea>
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" id="btnEnviar" class="btn w-100 fw-bold py-2 text-white transition-all" style="background-color: #800000; border: none;">
+            Enviar Mensaje
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 
-  </form>
-</td>
-    
-       
-    </td>
-    
-  </tr>
-</table>
-<br>
-<br>
-<br>
-
-
-                     <p style="text-align:center"> Tiendas </p> 
-                <p style="text-align:center"> Av. Andrés Bello 2425, Oficina 803, Providencia, Santiago. </p> 
-                            <p style="text-align:center"> Teléfono: +56 9 8412 3765 </p> 
-                <p style="text-align:center"> Av. Apoquindo 4700, Local 12, Las Condes, Santiago.        </p> 
-                            <p style="text-align:center"> Teléfono: +56 9 7321 9854 </p> 
-                <p style="text-align:center"> Calle Moneda 970, Piso 5, Santiago Centro, Santiago.       </p> 
-                            <p style="text-align:center"> Teléfono: +56 9 6158 4239 </p>
-
+  <div class="mt-5 pt-4">
+    <h2 class="text-center mb-4 h3 fw-bold" style="color: #212529;">Nuestras Tiendas</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-3 text-center text-white" style="background-color: #212529; border-bottom: 3px solid #800000 !important;">
+          <h3 class="h5 fw-bold mb-2 text-white">Providencia</h3>
+          <p class="mb-2 text-light small opacity-75">Av. Andrés Bello 2425, Oficina 803, Santiago</p>
+          <p class="fw-bold mb-0 text-warning">📞 +56 9 8412 3765</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-3 text-center text-white" style="background-color: #212529; border-bottom: 3px solid #800000 !important;">
+          <h3 class="h5 fw-bold mb-2 text-white">Las Condes</h3>
+          <p class="mb-2 text-light small opacity-75">Av. Apoquindo 4700, Local 12, Santiago</p>
+          <p class="fw-bold mb-0 text-warning">📞 +56 9 7321 9854</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-3 text-center text-white" style="background-color: #212529; border-bottom: 3px solid #800000 !important;">
+          <h3 class="h5 fw-bold mb-2 text-white">Santiago Centro</h3>
+          <p class="mb-2 text-light small opacity-75">Calle Moneda 970, Piso 5, Santiago</p>
+          <p class="fw-bold mb-0 text-warning">📞 +56 9 6158 4239</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
-document.getElementById('btnEnviar').addEventListener('click', function() {
-    
-    const nombre = document.getElementById('nombreInput').value;
-    const email = document.getElementById('emailInput').value;
-    const mensaje = document.getElementById('mensajeInput').value;
+document.getElementById('formContacto').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-    
-    if (!nombre || !email || !mensaje) {
-        alert('Por favor completa todos los campos.');
-        return;
-    }
+  const nombre = document.getElementById('nombreInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+  const mensaje = document.getElementById('mensajeInput').value.trim();
 
-    
-    const nuevoContacto = {
-        id: Date.now(),
-        nombre: nombre,
-        email: email,
-        mensaje: mensaje,
-        fecha: new Date().toLocaleString()
-    };
+  if (!nombre || !email || !mensaje) {
+    alert('Por favor completa todos los campos correctamente.');
+    return;
+  }
 
-    
-    let contactos = JSON.parse(localStorage.getItem('contactos_clstore')) || [];
-    contactos.push(nuevoContacto);
+  const nuevoContacto = {
+    id: Date.now(),
+    nombre: nombre,
+    email: email,
+    mensaje: mensaje,
+    fecha: new Date().toLocaleString()
+  };
 
-    
-    localStorage.setItem('contactos_clstore', JSON.stringify(contactos));
-    
-    document.getElementById('nombreInput').value = '';
-    document.getElementById('emailInput').value = '';
-    document.getElementById('mensajeInput').value = '';
+  let contactos = JSON.parse(localStorage.getItem('contactos_clstore')) || [];
+  contactos.push(nuevoContacto);
+  localStorage.setItem('contactos_clstore', JSON.stringify(contactos));
+
+  
+  this.reset();
 });
 </script>
 </html>
