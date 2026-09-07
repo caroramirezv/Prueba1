@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,11 +20,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"href="Blogs.html">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+                    <li class="nav-item"></liclass><a class="nav-link" href="Registro.html">Registrate</a></li>
                 </ul>
                 <a href="Carrito.html" class="btn btn-primary rounded-pill ms-lg-3 d-none d-lg-inline-block">
                     <i class="fa-solid fa-cart-shopping me-1"></i> Carrito
@@ -32,73 +33,64 @@
             </div>
         </div>
     </nav>
+    <div class="container my-5">
+    <h2 class="fw-bold mb-4" style="background-color: rgb(48, 48, 48); font-size: 100px;">Conversación</h2> 
+    </div>
+  </div>
+</div>
 
-    <main class="container my-5">
-        <h1 class="text-center mb-5 fw-bold text-uppercase">NOTICIAS IMPORTANTES</h1>
-
-        <div class="d-flex flex-column gap-4">
+<div class="row mt-5 pt-5 g-4">
+          
+          <div class="col-lg-8">
+            <h3 class="fw-bold mb-4">Curiosidades</h3>
             
-            
-            <article class="card blog-card shadow-sm border-dark">
-    <div class="row g-0 align-items-center">
-        <div class="col-md-7 p-4 d-flex flex-column justify-content-between h-100">
-            <div>
-                <h2 class="fw-bold mb-3">DLSS 5 y la polémica del "efecto película"</h2>
-                <p class="card-text text-light opacity-75">
-                    NVIDIA desató un intenso debate al prometer transformar los videojuegos en producciones cinematográficas. Probamos la tecnología en NBA 2K27 y te contamos por qué la realidad es mucho más sutil de lo que parece.
-                </p>
-                </p>
+            <div class="card mb-3" style="height: 150px">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title fw-bold">¿Sabías que...?</h5>
+                  <span class="text-warning">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="card-text mt-2" style="font-size: 16px;">El primer prototipo de ratón fue inventado por Douglas Engelbart y Bill English en 1964. 
+                  sLa carcasa era una simple caja de madera tallada con dos ruedas metálicas perpendiculares para registrar el movimiento en los ejes X e Y.</p>
+              </div>
             </div>
-            <div class="mt-4">
+            
+            <div class="card mb-3"  style="height: 150px;">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title fw-bold">Ana L.</h5>
+                  <span class="text-warning">⭐⭐⭐⭐</span>
+                </div>
+                <p class="card-text mt-2" style="font-size: 16px;">La mejor inversión para renderizado 3D. Los tiempos de espera se redujeron a la mitad.</p>
+              </div>
+            </div>
                 
-                <a href="https://www.xataka.com/videojuegos/dlss-5-desato-polemica-convertir-videojuegos-peliculas-hemos-probado-nba-2k27-realidad-mucho-sutil"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-light text-dark fw-bold px-4 rounded-0 shadow-sm">
-                    VER CASO
-                </a>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="blog-img-wrapper border-start border-dark">
-                <img src="img/blog.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="NVIDIA RTX Serie 50">
-            </div>
-        </div>
-    </div>
-</article>
+            <div class="card mb-3" style="height: 150px;">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title fw-bold">Jorge P.</h5>
+                  <span class="text-warning">⭐⭐⭐</span>
+                </div>
+                <p class="card-text mt-2" style="font-size: 16px;">Una bestia total. Eso sí, asegúrense de tener una fuente de poder que la soporte porque consume bastante.</p>
+              </div>
+            </div>  
+          </div>
 
+          <!-- COLUMNA DEL RECUADRO DE INFORMACIÓN -->
+          <div class="col-lg-4">
+            <div class="rounded-4 p-4 h-100 shadow-sm d-flex flex-column justify-content-center" style="background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+              <h4 class="fw-bold mb-3" style="color: #76b900;">Rendimiento Extremo</h4>
+              <p style="font-size: 15px; color: #e0e0e0; line-height: 1.6;">Si buscas lo mejor de lo mejor, esta gráfica es para ti.
+               Rendimiento extremo para jugar a máximos ajustes, altas tasas de FPS y resoluciones 4K e incluso superiores. Gracias a sus 32 GB de VRAM,
+              está preparada no solo para los juegos más exigentes de la actualidad, sino también para los títulos que llegarán en los próximos años.
+              Su enorme potencia permite disfrutar de ray tracing, texturas de máxima calidad y tecnologías de escalado de última generación sin sacrificar fluidez. 
+              Además, es una opción excelente para tareas profesionales como edición de vídeo, modelado 3D y renderizado.
+              En resumen, una tarjeta gráfica de gama entusiasta diseñada para quienes no quieren compromisos:
+              máximo rendimiento, tecnología de última generación y potencia de sobra para cualquier desafío. 🔥💪</>
             
-        <article class="card blog-card shadow-sm border-dark">
-    <div class="row g-0 align-items-center">
-        <div class="col-md-7 p-4 d-flex flex-column justify-content-between h-100">
-            <div>
-                <h2 class="fw-bold mb-3">Monitores OLED y el mito del "Burn-In"</h2>
-                <p class="card-text text-light opacity-75">
-                    El "burn-in" o marcado permanente en monitores OLED ya no es un fallo inminente, sino un desgaste físico real de los píxeles que hoy se mitiga de forma muy efectiva, aunque persisten ciertos riesgos en usos extremos.
-                </p>
             </div>
-            <div class="mt-4">
-                <a href="https://www.xataka.com/seleccion/hablemos-quemados-teles-oled-2026-siguen-siendo-problema-quedo-pasado"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-light text-dark fw-bold px-4 rounded-0 shadow-sm">
-                    VER CASO
-                </a>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="blog-img-wrapper border-start border-dark">
-                <img src="img/oled.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Monitor Gaming OLED">
-            </div>
-        </div>
-    </div>
-</article>
+          </div>
 
-        </div>
-    </main>
-    
-
-
-
+      </div>
 </body>
 </html>

@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function asignarEventosControles() {
-// Incrementar cantidad
+// Aumentar cantidad
         document.querySelectorAll(".btn-sumar").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const idx = e.target.dataset.index;
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-// Decrementar cantidad
+// Disminuir cantidad
         document.querySelectorAll(".btn-restar").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const idx = e.target.dataset.index;
