@@ -11,13 +11,13 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="Home.html">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
                 <img src="img/Logo.png" alt="logo" height="40">
                 <span class="fw-bold">CLstore</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,8 +26,12 @@
                     <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="Blogs.html">Blogs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"href="Contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Registro.html">Registrate</a></li>
                 </ul>
+                <a href="Carrito.html" class="btn btn-primary rounded-pill ms-lg-3 d-none d-lg-inline-block">
+                    <i class="fa-solid fa-cart-shopping me-1"></i> Carrito
+                </a>
             </div>
         </div>
     </nav>
