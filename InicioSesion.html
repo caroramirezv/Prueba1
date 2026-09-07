@@ -44,7 +44,7 @@
     <div class="container text-center">
   <div class="row">
    <div class="mb-5 fw-bold" style="height: 200px; width: 600px;">
-      <form id="formContacto" class="p-4 rounded-3 shadow text-white" style="background-color: #212529; border-top: 4px solid #800000;">
+      <form id="loginForm" class="p-4 rounded-3 shadow text-white" style="background-color: #212529; border-top: 4px solid rgb(85, 205, 58)">
         <div class="mb-3">
           <label for="nombreInput" class="form-label fw-bold">Usuario</label>
           <input type="text" class="form-control border-0" id="nombreInput" placeholder="Ej: Juan123" maxlength="100" style="background-color: #fdf6e2; color: #212529;" required>
@@ -54,18 +54,33 @@
           <label for="passwordInput" class="form-label fw-bold">Contraseña</label>
           <input type="password" class="form-control border-0" id="passwordInput" placeholder="Ingrese contraseña" maxlength="100"  title="Solo carácteres alfanumericos" style="background-color: #fdf6e2; color: #212529;" required>
         </div>
-        <div>
-          <p>¿Ya tienes cuenta?</p><a href="InicioSesion.html"><p>Inicia Sesión</p></a>
-        </div>
+        
          <div class="mt-4">
-          <button type="submit" id="btnEnviar" class="btn w-100 fw-bold py-2 text-white transition-all" style="background-color: #800000; border: none;">
-            Enviar Mensaje
+          <button type="submit" id="btnEnviar" class="btn w-100 fw-bold py-2 text-white transition-all" style="background-color:  rgb(85, 205, 58); border: none;">
+            Iniciar Sesión
           </button>
         </div>
+        </form>
     
   </div>
   
 </div>
+
+        <script>
+             document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const usuario = document.getElementById('nombreInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            localStorage.setItem('nombreUsuario', usuario);
+            if(usuario=="admin"&& password=="admin"){
+                window.location.href='vistaAdministrador.html';
+            }else{
+            window.location.href = 'home.html';
+            }
+            });
+        </script>
+    
 
   
 
@@ -73,7 +88,7 @@
 
 
        
-      </form>
+      
     </div>
   </div>
   </div>
@@ -83,4 +98,4 @@
     
 </body>
 </html>
- --
+ 
