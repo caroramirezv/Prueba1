@@ -1,12 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 </head>
 <body>
-    
+        <nav class="navbar navbar-expand-lg sticky-top admin-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="#">
+                    <div class="brand-logo">
+                        <i class="fa-solid fa-compass fs-5"></i>
+                    </div>
+                    <span class="fw-bold text-dark fs-5 tracking-tight">Clstore</span>
+                </a>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdminContent">
+                    <i class="fa-solid fa-bars fs-4 text-dark"></i>
+                </button>
+
+                <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarAdminContent">
+
+                    <ul class="navbar-nav mx-lg-auto mb-3 mb-lg-0 nav-pills-custom gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="tab-productos" href="#" onclick="cambiarSeccion('productos')">
+                                <i class="fa-solid fa-boxes-stacked me-2"></i>Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-usuarios" href="#" onclick="cambiarSeccion('usuarios')">
+                                <i class="fa-solid fa-users me-2"></i>Usuarios
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="Home.html" class="btn btn-exit btn-sm rounded-pill px-3 py-2">
+                            <i class="fa-solid fa-right-from-bracket me-1"></i> Salir a Tienda
+                        </a>
+
+                        <div class="vr d-none d-lg-block text-muted opacity-25" style="height: 24px;"></div>
+
+                        <div class="profile-pill d-flex align-items-center gap-2">
+                            <div class="profile-avatar">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <span class="fw-semibold text-secondary small">Profile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+            <div class="content-body">
+                
+                <section id="seccion-productos" class="p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="fw-bold m-0"><i class="fa-solid fa-boxes-stacked me-2"></i>Mantenedor de Productos</h4>
+                        <button class="btn btn-primary rounded-pill px-4" onclick="prepararCreacionProducto()">
+                            <i class="fa-solid fa-plus me-2"></i>Nuevo Producto
+                        </button>
+                    </div>
+
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Código</th>
+                                            <th>Nombre</th>
+                                            <th>Categoría</th>
+                                            <th>Precio</th>
+                                            <th>Stock</th>
+                                            <th class="text-end pe-4">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla-admin-productos">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="seccion-usuarios" class="p-4 d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="fw-bold m-0"><i class="fa-solid fa-users me-2"></i>Mantenedor de Usuarios</h4>
+                        <button class="btn btn-primary rounded-pill px-4" onclick="prepararCreacionUsuario()">
+                            <i class="fa-solid fa-user-plus me-2"></i>Nuevo Usuario
+                        </button>
+                    </div>
+
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>RUN</th>
+                                            <th>Nombre Completo</th>
+                                            <th>Correo</th>
+                                            <th>Tipo</th>
+                                            <th>Ubicación</th>
+                                            <th class="text-end pe-4">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla-admin-usuarios">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+
+    <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalProductoTitle">Nuevo Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form-producto">
+                    <div class="modal-body row g-3">
+                        <input type="hidden" id="prod-es-edicion" value="false">
+                        
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Código producto *</label>
+                            <input type="text" class="form-control" id="prod-codigo" minlength="3" required placeholder="Ej: PROD001 (Min 3 caracteres)">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Nombre *</label>
+                            <input type="text" class="form-control" id="prod-nombre" maxlength="100" required placeholder="Máx 100 caracteres">
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">Descripción (Opcional)</label>
+                            <textarea class="form-control" id="prod-descripcion" rows="2" maxlength="500" placeholder="Máx 500 caracteres"></textarea>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Precio ($) *</label>
+                            <input type="number" step="0.01" min="0" class="form-control" id="prod-precio" required placeholder="0 es GRATIS">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Stock *</label>
+                            <input type="number" step="1" min="0" class="form-control" id="prod-stock" required placeholder="Número entero">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Stock Crítico (Opcional)</label>
+                            <input type="number" step="1" min="0" class="form-control" id="prod-stock-critico" placeholder="Ej: 3">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Categoría *</label>
+                            <select class="form-select" id="prod-categoria" required>
+                                <option value="">Seleccione Categoría</option>
+                                <option value="Componentes">Componentes</option>
+                                <option value="Consolas & Laptops">Consolas & Laptops</option>
+                                <option value="Periféricos">Periféricos & Monitores</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Ruta Imagen (Opcional)</label>
+                            <input type="text" class="form-control" id="prod-imagen" placeholder="img/ejemplo.jpg">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary rounded-pill">Guardar Producto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalUsuario" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalUsuarioTitle">Gestionar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form-usuario">
+                    <div class="modal-body row g-3">
+                        <input type="hidden" id="usr-es-edicion" value="false">
+                        
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">RUN *</label>
+                            <input type="text" class="form-control" id="usr-run" minlength="7" maxlength="9" placeholder="Sin puntos ni guion (Ej: 19011022K)" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Tipo de Usuario *</label>
+                            <select class="form-select" id="usr-tipo" required>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Cliente">Cliente</option>
+                                <option value="Vendedor">Vendedor</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Nombre *</label>
+                            <input type="text" class="form-control" id="usr-nombre" maxlength="50" required placeholder="Máx 50 caracteres">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Apellidos *</label>
+                            <input type="text" class="form-control" id="usr-apellidos" maxlength="100" required placeholder="Máx 100 caracteres">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Correo Electrónico *</label>
+                            <input type="email" class="form-control" id="usr-correo" maxlength="100" placeholder="@duoc.cl, @profesor.duoc.cl o @gmail.com" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Fecha Nacimiento (Opcional)</label>
+                            <input type="date" class="form-control" id="usr-fecha-nacimiento">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Región *</label>
+                            <select class="form-select" id="usr-region" required>
+                                <option value="">Seleccione Región</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Comuna *</label>
+                            <select class="form-select" id="usr-comuna" required disabled>
+                                <option value="">Seleccione primero una Región</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">Dirección *</label>
+                            <input type="text" class="form-control" id="usr-direccion" maxlength="300" required placeholder="Máx 300 caracteres">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary rounded-pill">Guardar Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts visuales y anexo con archivo js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="JS/admin.js"></script>
 </body>
 </html>
- --
