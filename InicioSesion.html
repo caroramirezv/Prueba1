@@ -66,20 +66,7 @@
   
 </div>
 
-        <script>
-             document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-            const usuario = document.getElementById('nombreInput').value;
-            const password = document.getElementById('passwordInput').value;
-
-            localStorage.setItem('nombreUsuario', usuario);
-            if(usuario=="admin"&& password=="admin"){
-                window.location.href='vistaAdministrador.html';
-            }else{
-            window.location.href = 'home.html';
-            }
-            });
-        </script>
+        
     
 
   
@@ -95,7 +82,7 @@
 
   
 </div>
-    
+    <script src="js/Sesion.js"></script>
 </body>
 </html>
  
