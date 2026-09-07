@@ -48,11 +48,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="Blogs.html">Blogs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"href="Contacto.html">Contacto</a></li>
+                    <li><a class="nav-link" href="Registro.html">Registrate</a></li>
                 </ul>
                 <a href="Carrito.html" class="btn btn-primary rounded-pill ms-lg-3 d-none d-lg-inline-block">
                     <i class="fa-solid fa-cart-shopping me-1"></i> Carrito
@@ -65,7 +66,8 @@
         
 
 <div class="container my-5">
-  <h1 class="text-center mb-5 fw-bold text-white">Contacta con nosotros</h1>
+  <h1 class="text-center mb-5 fw-bold" style="color: #212529;">Contacta con nosotros</h1>
+
   <div class="row g-4 align-items-stretch">
     <div class="col-lg-5">
       <div class="p-4 rounded-3 h-100 shadow text-white d-flex flex-column justify-content-center" style="background-color: #212529; border-top: 4px solid #800000;">
@@ -80,17 +82,17 @@
       <form id="formContacto" class="p-4 rounded-3 shadow text-white" style="background-color: #212529; border-top: 4px solid #800000;">
         <div class="mb-3">
           <label for="nombreInput" class="form-label fw-bold">Nombre</label>
-          <input type="text" class="form-control border-0" id="nombreInput" placeholder="Ej: Juan Pérez" maxlength="100" style="background-color: #fdfdfd; color: #212529;" required>
+          <input type="text" class="form-control border-0" id="nombreInput" placeholder="Ej: Juan Pérez" maxlength="100" style="background-color: #fdf6e2; color: #212529;" required>
         </div>
 
         <div class="mb-3">
           <label for="emailInput" class="form-label fw-bold">Email</label>
-          <input type="email" class="form-control border-0" id="emailInput" placeholder="juan@duoc.cl" maxlength="100" pattern="[a-zA-Z0-9._%+\-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)" title="Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com" style="background-color: #fdfdfd; color: #212529;" required>
+          <input type="email" class="form-control border-0" id="emailInput" placeholder="juan@duoc.cl" maxlength="100" pattern="[a-zA-Z0-9._%+\-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)" title="Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com" style="background-color: #fdf6e2; color: #212529;" required>
         </div>
 
         <div class="mb-3">
           <label for="mensajeInput" class="form-label fw-bold">Comentario</label>
-          <textarea class="form-control border-0" id="mensajeInput" placeholder="Tu comentario..." maxlength="500" rows="5" style="background-color: #f5f5f4; color: #212529;" required></textarea>
+          <textarea class="form-control border-0" id="mensajeInput" placeholder="Tu comentario..." maxlength="500" rows="5" style="background-color: #fdf6e2; color: #212529;" required></textarea>
         </div>
 
         <div class="mt-4">
@@ -103,7 +105,7 @@
   </div>
 
   <div class="mt-5 pt-4">
-    <h2 class="text-center mb-4 h3 fw-bold text-white">Nuestras Tiendas</h2>
+    <h2 class="text-center mb-4 h3 fw-bold" style="color: #212529;">Nuestras Tiendas</h2>
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100 border-0 shadow p-3 text-center text-white" style="background-color: #212529; border-bottom: 3px solid #800000 !important;">
@@ -160,3 +162,4 @@ document.getElementById('formContacto').addEventListener('submit', function(e) {
 });
 </script>
 </html>
+ --
