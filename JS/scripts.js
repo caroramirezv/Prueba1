@@ -1,139 +1,142 @@
-//Codigo logia Carrito, falta revisarlo:
+//Inicio logica carrito
 document.addEventListener("DOMContentLoaded", () => {
+    // Carga el carrito desde el LocalStorage
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    const botonesAgregar = document.querySelectorAll(".btn-agregar");
 
-    botonesAgregar.forEach((boton) => {
+    // Referencias
+    const tablaCarrito = document.getElementById("cart-items");
+    const subtotalEl = document.getElementById("summary-subtotal");
+    const totalEl = document.getElementById("summary-total");
+    //Boton agregar conectado con la funcion de agregar al carrito
+    document.querySelectorAll(".btn-agregar").forEach(boton => {
         boton.addEventListener("click", (e) => {
             const btn = e.currentTarget;
-            
-// Obtener datos desde los atributos data
-            const producto = {
-                id: btn.dataset.id,
-                nombre: btn.dataset.nombre,
-                precio: parseFloat(btn.dataset.precio),
-                imagen: btn.dataset.imagen,
-                cantidad: 1
-            };
+            const id = btn.dataset.id;
 
-// Verifica si el producto ya está en el carrito
-            const existeIndex = carrito.findIndex(item => item.id === producto.id);
+            const existe = carrito.find(p => p.id === id);
 
-            if (existeIndex !== -1) {
-                carrito[existeIndex].cantidad += 1;
+            if (existe) {
+                existe.cantidad++;
             } else {
-                carrito.push(producto);
-            }
-
-// Guardar PRODUCTO en localStorage
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-
-// Alerta visual al agregar al carrito
-            if (typeof Swal !== "undefined") {
-                Swal.fire({
-                    title: "¡Agregado!",
-                    text: `${producto.nombre} se añadió al carrito.`,
-                    icon: "success",
-                    timer: 1500,
-                    showConfirmButton: false
+                carrito.push({
+                    id: id,
+                    nombre: btn.dataset.nombre,
+                    precio: parseFloat(btn.dataset.precio),
+                    imagen: btn.dataset.imagen,
+                    cantidad: 1
                 });
             }
+
+    // Guardar el producto en localStorage
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    //Alerta visual al agregar
+                Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: 'Producto añadido',
+                showConfirmButton: false,
+                timer: 1500
+            });
         });
     });
 
-    function actualizarTotales() {
-        const subtotalEl = document.getElementById("summary-subtotal");
-        const totalEl = document.getElementById("summary-total");
+    //Funcion para mostrar los productos en el carrito
+    function renderizarCarrito() {
+        if (!tablaCarrito) return;
 
-        if (!subtotalEl || !totalEl) return;
+        tablaCarrito.innerHTML = "";
+        let total = 0;
 
-        const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
-        
-        subtotalEl.textContent = `$${total.toLocaleString("es-CL")}`;
-        totalEl.textContent = `$${total.toLocaleString("es-CL")}`;
+        carrito.forEach((prod, index) => {
+            const subtotal = prod.precio * prod.cantidad;
+            total += subtotal;
+
+            tablaCarrito.innerHTML += `
+                <tr>
+                    <td>
+                        <img src="${prod.imagen}" width="40"> ${prod.nombre}
+                    </td>
+                    <td>$${prod.precio}</td>
+                    <td>
+                        <button onclick="cambiarCantidad(${index}, -1)">-</button>
+                        ${prod.cantidad}
+                        <button onclick="cambiarCantidad(${index}, 1)">+</button>
+                    </td>
+                    <td>$${subtotal}</td>
+                    <td>
+                        <button onclick="eliminarProducto(${index})">X</button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        if (subtotalEl) subtotalEl.textContent = `$${total}`;
+        if (totalEl) totalEl.textContent = `$${total}`;
     }
 
-    function asignarEventosControles() {
-// Aumentar cantidad
-        document.querySelectorAll(".btn-sumar").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                const idx = e.target.dataset.index;
-                carrito[idx].cantidad++;
-                guardarYRenderizar();
-            });
-        });
+    // Funciones globales para actualizar o borrar
+    window.cambiarCantidad = (index, cambio) => {
+        carrito[index].cantidad += cambio;
+        if (carrito[index].cantidad <= 0) carrito.splice(index, 1);
+        guardar();
+    };
 
-// Disminuir cantidad
-        document.querySelectorAll(".btn-restar").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                const idx = e.target.dataset.index;
-                if (carrito[idx].cantidad > 1) {
-                    carrito[idx].cantidad--;
-                } else {
-                    carrito.splice(idx, 1);
-                }
-                guardarYRenderizar();
-            });
-        });
+    window.eliminarProducto = (index) => {
+        carrito.splice(index, 1);
+        guardar();
+    };
 
-// Eliminar producto
-        document.querySelectorAll(".btn-eliminar").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                const idx = e.currentTarget.dataset.index;
-                carrito.splice(idx, 1);
-                guardarYRenderizar();
-            });
-        });
-    }
-
-    function guardarYRenderizar() {
+    function guardar() {
         localStorage.setItem("carrito", JSON.stringify(carrito));
         renderizarCarrito();
     }
 
-// Inicializar la tabla si se encuentra en la página de carrito
+// Carga la tabla al entrar a la página
     renderizarCarrito();
 });
 
-// Función de Compra
+//Procesa la compra
 function realizarCompra() {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    
-    if (carrito.length === 0) {
-        Swal.fire("Carrito vacío", "Añade productos antes de pagar.", "warning");
-        return;
-    }
-
+    //Alerta visual de que se completo la compra
     Swal.fire({
-        title: "¡Gracias por tu compra!",
-        text: "Tu pedido ha sido procesado con éxito.",
-        icon: "success"
+        title: '¡Compra completada!',
+        text: 'Gracias por tu compra en CLstore.',
+        icon: 'success',
+        confirmButtonText: 'Genial',
+        confirmButtonColor: '#0d6efd'
     }).then(() => {
-        localStorage.removeItem("carrito");
-        window.location.href = "Home.html";
+        localStorage.removeItem('clstore_cart');
+        renderCart();
     });
 }
+//Fin logica carrito
 
-// Filtro de categorías y buscador
-function inicializarFiltrosYBuscador() {
-    const searchInput = document.getElementById("input-search");
+
+//Filtros en la pagina Productos
+document.addEventListener("DOMContentLoaded", () => {
+// Referencias a los botones de filtros y buscador
+    const inputSearch = document.getElementById("input-search");
     const filterButtons = document.querySelectorAll(".btn-filter");
     const productItems = document.querySelectorAll(".product-item");
 
-    if (!searchInput && filterButtons.length === 0) return;
-
     let activeFilter = "all";
+    let searchText = "";
 
+//Filtrado y busqueda
     function filterProducts() {
-        const query = searchInput ? searchInput.value.toLowerCase() : "";
+        productItems.forEach(item => {
+            const category = item.getAttribute("data-category");
+            const name = item.getAttribute("data-name").toLowerCase();
 
-        productItems.forEach((item) => {
-            const category = item.dataset.category;
-            const name = item.dataset.name.toLowerCase();
-
+            // Verificar coincidencia de categoría
             const matchesCategory = activeFilter === "all" || category === activeFilter;
-            const matchesSearch = name.includes(query);
+            
+            // Verificar coincidencia de texto
+            const matchesSearch = name.includes(searchText);
 
+            // Ocultar o mostrar productos segun su coincidencia con el criterio
             if (matchesCategory && matchesSearch) {
                 item.style.display = "block";
             } else {
@@ -142,18 +145,29 @@ function inicializarFiltrosYBuscador() {
         });
     }
 
-    filterButtons.forEach((btn) => {
+// Evento al escribir en la barra de búsqueda
+    if (inputSearch) {
+        inputSearch.addEventListener("input", (e) => {
+            searchText = e.target.value.toLowerCase().trim();
+            filterProducts();
+        });
+    }
+
+//Efecto visual al clickear botones de categoria
+    filterButtons.forEach(btn => {
         btn.addEventListener("click", () => {
-            filterButtons.forEach((b) => b.classList.replace("btn-primary", "btn-outline-secondary"));
-            btn.classList.replace("btn-outline-secondary", "btn-primary");
-            activeFilter = btn.dataset.filter;
+        // Cambiar estilos de los botones (apartado visual)
+            filterButtons.forEach(b => {
+                b.classList.remove("btn-primary", "active");
+                b.classList.add("btn-outline-secondary");
+            });
+
+            btn.classList.remove("btn-outline-secondary");
+            btn.classList.add("btn-primary", "active");
+
+        // Actualizar filtro de categoría
+            activeFilter = btn.getAttribute("data-filter");
             filterProducts();
         });
     });
-
-    if (searchInput) {
-        searchInput.addEventListener("input", filterProducts);
-    }
-}
-
-//FIN LOGICA CARRITO
+});
