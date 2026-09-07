@@ -70,22 +70,30 @@ document.addEventListener('DOMContentLoaded', function() {
     return dominiosValidos.some(dominio => correo.toLowerCase().endsWith(dominio));
   }
 
-  selectRegion.addEventListener('change', function() {
-    const region = this.value;
-    selectComuna.innerHTML = '<option value="" disabled selected>-- Seleccione comuna --</option>';
-    
-    if (comunasPorRegion[region]) {
-      comunasPorRegion[region].forEach(comuna => {
-        const opt = document.createElement('option');
-        opt.value = comuna;
-        opt.textContent = comuna;
-        selectComuna.appendChild(opt);
-      });
-      selectComuna.disabled = false;
-    } else {
-      selectComuna.disabled = true;
-    }
-  });
+function actualizarComunas() {
+  const region = selectRegion.value;
+  selectComuna.innerHTML = '<option value="" disabled selected>-- Seleccione comuna --</option>';
+
+  if (region && comunasPorRegion[region]) {
+    comunasPorRegion[region].forEach(comuna => {
+      const opt = document.createElement('option');
+      opt.value = comuna;
+      opt.textContent = comuna;
+      selectComuna.appendChild(opt);
+    });
+    selectComuna.disabled = false;
+  } else {
+    selectComuna.disabled = true;
+  }
+}
+
+// Escuchar cambios de región
+selectRegion.addEventListener('change', actualizarComunas);
+
+// Ejecutar al cargar la página si ya hay una región preseleccionada
+if (selectRegion.value) {
+  actualizarComunas();
+}
 
   btnRegistrar.addEventListener('click', function() {
     const run = document.getElementById('runInput').value.trim();
