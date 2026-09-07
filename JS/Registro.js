@@ -173,3 +173,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+
+const formContacto = document.getElementById('formContacto');
+
+if (formContacto) {
+  formContacto.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById('nombreInput').value.trim();
+    const email = document.getElementById('emailInput').value.trim();
+    const mensaje = document.getElementById('mensajeInput').value.trim();
+
+    if (!nombre || !email || !mensaje) {
+      alert('Por favor completa todos los campos correctamente.');
+      return;
+    }
+
+    const nuevoContacto = {
+      id: Date.now(),
+      nombre: nombre,
+      email: email,
+      mensaje: mensaje,
+      fecha: new Date().toLocaleString()
+    };
+
+    let contactos = JSON.parse(localStorage.getItem('contactos_clstore')) || [];
+    contactos.push(nuevoContacto);
+    localStorage.setItem('contactos_clstore', JSON.stringify(contactos));
+
+    this.reset();
+  });
+}
