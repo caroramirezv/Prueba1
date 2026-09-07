@@ -1,5 +1,4 @@
 //Codigo logia Carrito, falta revisarlo:
-
 document.addEventListener("DOMContentLoaded", () => {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     const botonesAgregar = document.querySelectorAll(".btn-agregar");
