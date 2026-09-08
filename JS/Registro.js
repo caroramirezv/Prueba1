@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const comunasPorRegion = {
-    "RM": ["Providencia", "Las Condes", "Santiago Centro", "La Florida", "Maipú"],
-    "Araucania": ["Temuco", "Villarrica", "Pucón", "Angol"],
-    "Nuble": ["Chillán", "San Carlos", "Bulnes"],
-    "Maule": ["Linares", "Longaví", "Talca", "Curicó"],
-    "Biobio": ["Concepción", "Talcahuano", "Los Ángeles"]
-  };
-
   const selectRegion = document.getElementById('selectRegion');
   const selectComuna = document.getElementById('selectComuna');
   const btnRegistrar = document.getElementById('btnRegistrar');
@@ -39,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Validar RUN chileno con Módulo 11 (Limpia puntos, guiones y espacios)
   function validarRunChileno(run) {
     const runLimpio = run.replace(/[\.\-\s]/g, '').toUpperCase();
     if (runLimpio.length < 7 || runLimpio.length > 9) return false;
@@ -70,12 +61,24 @@ document.addEventListener('DOMContentLoaded', function() {
     return dominiosValidos.some(dominio => correo.toLowerCase().endsWith(dominio));
   }
 
+function poblarRegiones() {
+  REGIONES_Y_COMUNAS.forEach(item => {
+    const opt = document.createElement('option');
+    opt.value = item.region;
+    opt.textContent = item.region;
+    selectRegion.appendChild(opt);
+  });
+}
+poblarRegiones();
+
 function actualizarComunas() {
   const region = selectRegion.value;
   selectComuna.innerHTML = '<option value="" disabled selected>-- Seleccione comuna --</option>';
 
-  if (region && comunasPorRegion[region]) {
-    comunasPorRegion[region].forEach(comuna => {
+  const regionEncontrada = REGIONES_Y_COMUNAS.find(r => r.region === region);
+
+  if (regionEncontrada) {
+    regionEncontrada.comunas.forEach(comuna => {
       const opt = document.createElement('option');
       opt.value = comuna;
       opt.textContent = comuna;
@@ -87,10 +90,9 @@ function actualizarComunas() {
   }
 }
 
-// Escuchar cambios de región
 selectRegion.addEventListener('change', actualizarComunas);
 
-// Ejecutar al cargar la página si ya hay una región preseleccionada
+
 if (selectRegion.value) {
   actualizarComunas();
 }
@@ -106,8 +108,9 @@ if (selectRegion.value) {
     const confirmarPassword = document.getElementById('confirmarPassword').value.trim();
     const region = selectRegion.value;
     const comuna = selectComuna.value;
+    const direccion = document.getElementById('direccionInput').value.trim();
 
-    if (!run || !nombre || !apellidos || !correo || !confirmarCorreo || !password || !confirmarPassword || !region || !comuna) {
+    if (!run || !nombre || !apellidos || !correo || !confirmarCorreo || !password || !confirmarPassword || !region || !comuna || !direccion) {
       mostrarNotificacion('Campos Incompletos', 'Por favor, completa todos los campos requeridos para continuar.', true);
       return;
     }
@@ -142,8 +145,18 @@ if (selectRegion.value) {
       return;
     }
 
+    if (password.length < 4 || password.length > 10) {
+      mostrarNotificacion('Contraseña Inválida', 'La contraseña debe tener entre 4 y 10 caracteres.', true);
+      return;
+    }
+
     if (password !== confirmarPassword) {
       mostrarNotificacion('Error de Contraseña', 'Las contraseñas ingresadas no coinciden.', true);
+      return;
+    }
+
+    if (direccion.length > 300) {
+      mostrarNotificacion('Dirección muy larga', 'La dirección no puede superar los 300 caracteres.', true);
       return;
     }
 
@@ -163,15 +176,16 @@ if (selectRegion.value) {
     }
 
     usuarios.push({
-      id: Date.now(),
       run: runFormateado,
       nombre,
       apellidos,
       correo,
       fechaNacimiento: fechaNacimiento || null,
       password,
+      tipo: 'Cliente',
       region,
-      comuna
+      comuna,
+      direccion
     });
 
     localStorage.setItem('usuarios_clstore', JSON.stringify(usuarios));

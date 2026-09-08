@@ -1,13 +1,13 @@
 //Inicio logica carrito
 document.addEventListener("DOMContentLoaded", () => {
-    // Carga el carrito desde el LocalStorage
+// Carga el carrito desde el LocalStorage
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Referencias
+// Referencias
     const tablaCarrito = document.getElementById("cart-items");
     const subtotalEl = document.getElementById("summary-subtotal");
     const totalEl = document.getElementById("summary-total");
-    //Boton agregar conectado con la funcion de agregar al carrito
+//Boton agregar conectado con la funcion de agregar al carrito
     document.querySelectorAll(".btn-agregar").forEach(boton => {
         boton.addEventListener("click", (e) => {
             const btn = e.currentTarget;
@@ -27,10 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
 
-    // Guardar el producto en localStorage
+// Guardar el producto en localStorage
             localStorage.setItem("carrito", JSON.stringify(carrito));
 
-    //Alerta visual al agregar
                 Swal.fire({
                 toast: true,
                 position: 'top-end',
@@ -42,12 +41,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    //Funcion para mostrar los productos en el carrito
+    //Parsear los valores a formato pesos chilenos
+    function formatoCLP(valor) {
+        return "$" + Math.round(valor).toLocaleString("es-CL");
+    }
+
+//Funcion para mostrar los productos en el carrito
     function renderizarCarrito() {
         if (!tablaCarrito) return;
 
+         const wrapperTabla = document.getElementById("cart-table-wrapper");
+        const estadoVacio = document.getElementById("cart-empty");
+
         tablaCarrito.innerHTML = "";
         let total = 0;
+
+        if (carrito.length === 0) {
+            if (wrapperTabla) wrapperTabla.classList.add("d-none");
+            if (estadoVacio) estadoVacio.classList.remove("d-none");
+            if (subtotalEl) subtotalEl.textContent = formatoCLP(0);
+            if (totalEl) totalEl.textContent = formatoCLP(0);
+            return;
+        }
 
         carrito.forEach((prod, index) => {
             const subtotal = prod.precio * prod.cantidad;
@@ -56,17 +71,28 @@ document.addEventListener("DOMContentLoaded", () => {
             tablaCarrito.innerHTML += `
                 <tr>
                     <td>
-                        <img src="${prod.imagen}" width="40"> ${prod.nombre}
+                        <div class="d-flex align-items-center">
+                            <img src="${prod.imagen}" class="cart-item-thumb" alt="${prod.nombre}">
+                            <span class="cart-item-name">${prod.nombre}</span>
+                        </div>
                     </td>
-                    <td>$${prod.precio}</td>
+                    <td class="cart-item-price">${formatoCLP(prod.precio)}</td>
                     <td>
-                        <button onclick="cambiarCantidad(${index}, -1)">-</button>
-                        ${prod.cantidad}
-                        <button onclick="cambiarCantidad(${index}, 1)">+</button>
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="cambiarCantidad(${index}, -1)" aria-label="Restar">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <span class="qty-value">${prod.cantidad}</span>
+                            <button class="qty-btn" onclick="cambiarCantidad(${index}, 1)" aria-label="Sumar">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
                     </td>
-                    <td>$${subtotal}</td>
-                    <td>
-                        <button onclick="eliminarProducto(${index})">X</button>
+                    <td class="cart-item-subtotal">${formatoCLP(subtotal)}</td>
+                    <td class="text-end">
+                        <button class="btn-remove-item" onclick="eliminarProducto(${index})" aria-label="Eliminar producto">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </td>
                 </tr>
             `;
@@ -93,13 +119,10 @@ document.addEventListener("DOMContentLoaded", () => {
         renderizarCarrito();
     }
 
-// Carga la tabla al entrar a la página
     renderizarCarrito();
 });
 
-//Procesa la compra
 function realizarCompra() {
-    //Alerta visual de que se completo la compra
     Swal.fire({
         title: '¡Compra completada!',
         text: 'Gracias por tu compra en CLstore.',
@@ -107,8 +130,8 @@ function realizarCompra() {
         confirmButtonText: 'Genial',
         confirmButtonColor: '#0d6efd'
     }).then(() => {
-        localStorage.removeItem('clstore_cart');
-        renderCart();
+        localStorage.removeItem('carrito');
+        location.reload();
     });
 }
 //Fin logica carrito
@@ -130,13 +153,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const category = item.getAttribute("data-category");
             const name = item.getAttribute("data-name").toLowerCase();
 
-            // Verificar coincidencia de categoría
+        // Verificar coincidencia de categoría
             const matchesCategory = activeFilter === "all" || category === activeFilter;
-            
-            // Verificar coincidencia de texto
+        
+        // Verificar coincidencia de texto
             const matchesSearch = name.includes(searchText);
 
-            // Ocultar o mostrar productos segun su coincidencia con el criterio
+        // Ocultar o mostrar productos segun su coincidencia con el criterio
             if (matchesCategory && matchesSearch) {
                 item.style.display = "block";
             } else {
@@ -145,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-// Evento al escribir en la barra de búsqueda
+// Efecto al escribir en la barra de búsqueda
     if (inputSearch) {
         inputSearch.addEventListener("input", (e) => {
             searchText = e.target.value.toLowerCase().trim();

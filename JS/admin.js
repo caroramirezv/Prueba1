@@ -1,36 +1,41 @@
-// Arreglo de Regiones y Comunas
-const regionesYComunas = [
-    {
-        region: "Región Metropolitana de Santiago",
-        comunas: ["Santiago", "Puente Alto", "Maipú", "La Florida", "San Bernardo", "El Bosque"]
-    },
-    {
-        region: "Región de Valparaíso",
-        comunas: ["Valparaíso", "Viña del Mar", "Concón", "Quilpué", "Villa Alemana"]
-    },
-    {
-        region: "Región del Biobío",
-        comunas: ["Concepción", "Talcahuano", "San Pedro de la Paz", "Chiguayante"]
-    }
-];
-
 document.addEventListener("DOMContentLoaded", () => {
-    inicializarDatosDemo();
+    const tipoUsuarioActual = localStorage.getItem("tipoUsuario");
+    if (tipoUsuarioActual !== "Administrador" && tipoUsuarioActual !== "Vendedor") {
+        window.location.href = "InicioSesion.html";
+        return;
+    }
+
     renderizarTablaProductos();
     renderizarTablaUsuarios();
     inicializarRegiones();
 
-// Eventos al guardar 
-    document.getElementById("form-producto").addEventListener("submit", guardarProducto);
-    document.getElementById("form-usuario").addEventListener("submit", guardarUsuario);
 
-// Cambio dinámico de comuna al seleccionar región
-    document.getElementById("usr-region").addEventListener("change", (e) => {
-        cargarComunas(e.target.value);
-    });
+    if (tipoUsuarioActual === "Vendedor") {
+        const liUsuarios = document.getElementById("li-tab-usuarios");
+        if (liUsuarios) liUsuarios.classList.add("d-none");
+
+        const btnNuevoProducto = document.getElementById("btn-nuevo-producto");
+        if (btnNuevoProducto) btnNuevoProducto.classList.add("d-none");
+    }
+
+    const formProducto = document.getElementById("form-producto");
+    if (formProducto) {
+        formProducto.addEventListener("submit", guardarProducto);
+    }
+
+    const formUsuario = document.getElementById("form-usuario");
+    if (formUsuario) {
+        formUsuario.addEventListener("submit", guardarUsuario);
+    }
+
+    const selectRegion = document.getElementById("usr-region");
+    if (selectRegion) {
+        selectRegion.addEventListener("change", (e) => {
+            cargarComunas(e.target.value);
+        });
+    }
 });
 
-//Navegacion entre secciones
 function cambiarSeccion(seccion) {
     const secProd = document.getElementById("seccion-productos");
     const secUsr = document.getElementById("seccion-usuarios");
@@ -50,11 +55,11 @@ function cambiarSeccion(seccion) {
     }
 }
 
-//Validacion de productos
 function renderizarTablaProductos() {
     const tbody = document.getElementById("tabla-admin-productos");
-    const productos = JSON.parse(localStorage.getItem("catalogoProductos")) || [];
+    if (!tbody) return;
 
+    const productos = JSON.parse(localStorage.getItem("catalogoProductos")) || [];
     tbody.innerHTML = "";
 
     if (productos.length === 0) {
@@ -68,6 +73,15 @@ function renderizarTablaProductos() {
             ? `<span class="badge bg-danger">Crítico: ${prod.stock}</span>` 
             : `<span class="badge bg-success">${prod.stock}</span>`;
 
+        const esVendedor = localStorage.getItem("tipoUsuario") === "Vendedor";
+        const botonesAccion = esVendedor ? "" : `
+                    <button class="btn btn-sm btn-outline-primary me-1" onclick="editarProducto('${prod.id}')">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto('${prod.id}')">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>`;
+
         tbody.innerHTML += `
             <tr>
                 <td><img src="${prod.imagen}" width="40" height="40" class="rounded object-fit-cover"></td>
@@ -76,14 +90,7 @@ function renderizarTablaProductos() {
                 <td><span class="badge bg-secondary">${prod.categoria}</span></td>
                 <td>$${parseFloat(prod.precio).toLocaleString("es-CL")}</td>
                 <td>${badgeStock}</td>
-                <td class="text-end pe-4">
-                    <button class="btn btn-sm btn-outline-primary me-1" onclick="editarProducto('${prod.id}')">
-                        <i class="fa-solid fa-pen"></i>
-                    </button>
-                    <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto('${prod.id}')">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </td>
+                <td class="text-end pe-4">${botonesAccion}</td>
             </tr>
         `;
     });
@@ -95,7 +102,8 @@ function prepararCreacionProducto() {
     document.getElementById("prod-codigo").disabled = false;
     document.getElementById("modalProductoTitle").textContent = "Nuevo Producto";
     
-    const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
+    const modalElement = document.getElementById("modalProducto");
+    const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
     modal.show();
 }
 
@@ -116,13 +124,19 @@ function editarProducto(codigo) {
         document.getElementById("prod-imagen").value = prod.imagen;
 
         document.getElementById("modalProductoTitle").textContent = "Editar Producto";
-        const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
+        const modalElement = document.getElementById("modalProducto");
+        const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
         modal.show();
     }
 }
 
 function guardarProducto(e) {
     e.preventDefault();
+
+    if (localStorage.getItem("tipoUsuario") === "Vendedor") {
+        Swal.fire("Acceso restringido", "El rol Vendedor no puede crear ni modificar productos.", "error");
+        return;
+    }
 
     const codigo = document.getElementById("prod-codigo").value.trim();
     const nombre = document.getElementById("prod-nombre").value.trim();
@@ -135,7 +149,6 @@ function guardarProducto(e) {
     const imagen = document.getElementById("prod-imagen").value.trim() || "img/default.jpg";
     const esEdicion = document.getElementById("prod-es-edicion").value === "true";
 
-// Validaciones de Producto
     if (codigo.length < 3) {
         Swal.fire("Error", "El código del producto debe tener al menos 3 caracteres.", "error");
         return;
@@ -168,7 +181,8 @@ function guardarProducto(e) {
     localStorage.setItem("catalogoProductos", JSON.stringify(productos));
     renderizarTablaProductos();
 
-    const modal = bootstrap.Modal.getInstance(document.getElementById("modalProducto"));
+    const modalElement = document.getElementById("modalProducto");
+    const modal = bootstrap.Modal.getInstance(modalElement);
     if (modal) modal.hide();
 
     if (stockCritico !== null && stock <= stockCritico) {
@@ -197,7 +211,7 @@ function eliminarProducto(codigo) {
     });
 }
 
-//Validaciones de usuario
+
 function validarRUN(run) {
     const regex = /^[0-9]{7,8}[0-9kK]{1}$/;
     if (!regex.test(run)) return false;
@@ -228,8 +242,9 @@ function validarCorreoDominio(correo) {
 
 function renderizarTablaUsuarios() {
     const tbody = document.getElementById("tabla-admin-usuarios");
-    const usuarios = JSON.parse(localStorage.getItem("usuariosSistema")) || [];
+    if (!tbody) return;
 
+    const usuarios = JSON.parse(localStorage.getItem("usuarios_clstore")) || [];
     tbody.innerHTML = "";
 
     if (usuarios.length === 0) {
@@ -244,7 +259,7 @@ function renderizarTablaUsuarios() {
                 <td>${usr.nombre} ${usr.apellidos}</td>
                 <td>${usr.correo}</td>
                 <td><span class="badge bg-primary">${usr.tipo}</span></td>
-                <td><small>${usr.comuna}, ${usr.region}</small></td>
+                <td><small>${usr.comuna || ''}${usr.region ? ', ' + usr.region : ''}</small></td>
                 <td class="text-end pe-4">
                     <button class="btn btn-sm btn-outline-primary me-1" onclick="editarUsuario('${usr.run}')">
                         <i class="fa-solid fa-user-pen"></i>
@@ -262,15 +277,25 @@ function prepararCreacionUsuario() {
     document.getElementById("form-usuario").reset();
     document.getElementById("usr-es-edicion").value = "false";
     document.getElementById("usr-run").disabled = false;
-    document.getElementById("usr-comuna").disabled = true;
+
+    const selectComuna = document.getElementById("usr-comuna");
+    if (selectComuna) selectComuna.disabled = true;
+
+    const inputPass = document.getElementById("usr-password");
+    if (inputPass) inputPass.required = true;
+
+    const hintPass = document.getElementById("usr-password-hint");
+    if (hintPass) hintPass.textContent = "Requerida (entre 4 y 10 caracteres).";
+
     document.getElementById("modalUsuarioTitle").textContent = "Nuevo Usuario";
 
-    const modal = new bootstrap.Modal(document.getElementById("modalUsuario"));
+    const modalElement = document.getElementById("modalUsuario");
+    const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
     modal.show();
 }
 
 function editarUsuario(run) {
-    const usuarios = JSON.parse(localStorage.getItem("usuariosSistema")) || [];
+    const usuarios = JSON.parse(localStorage.getItem("usuarios_clstore")) || [];
     const usr = usuarios.find(u => u.run === run);
 
     if (usr) {
@@ -280,16 +305,28 @@ function editarUsuario(run) {
         document.getElementById("usr-nombre").value = usr.nombre;
         document.getElementById("usr-apellidos").value = usr.apellidos;
         document.getElementById("usr-correo").value = usr.correo;
-        document.getElementById("usr-fecha-nacimiento").value = usr.fechaNac || "";
+        document.getElementById("usr-fecha-nacimiento").value = usr.fechaNacimiento || "";
+
+        const inputPass = document.getElementById("usr-password");
+        if (inputPass) {
+            inputPass.value = "";
+            inputPass.required = false;
+        }
+
+        const hintPass = document.getElementById("usr-password-hint");
+        if (hintPass) hintPass.textContent = "Dejar vacío para no cambiarla.";
+
         document.getElementById("usr-tipo").value = usr.tipo;
-        document.getElementById("usr-region").value = usr.region;
-        
+        document.getElementById("usr-region").value = usr.region || "";
+
         cargarComunas(usr.region);
-        document.getElementById("usr-comuna").value = usr.comuna;
-        document.getElementById("usr-direccion").value = usr.direccion;
+        document.getElementById("usr-comuna").value = usr.comuna || "";
+        document.getElementById("usr-direccion").value = usr.direccion || "";
 
         document.getElementById("modalUsuarioTitle").textContent = "Editar Usuario";
-        const modal = new bootstrap.Modal(document.getElementById("modalUsuario"));
+
+        const modalElement = document.getElementById("modalUsuario");
+        const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
         modal.show();
     }
 }
@@ -301,14 +338,16 @@ function guardarUsuario(e) {
     const nombre = document.getElementById("usr-nombre").value.trim();
     const apellidos = document.getElementById("usr-apellidos").value.trim();
     const correo = document.getElementById("usr-correo").value.trim();
-    const fechaNac = document.getElementById("usr-fecha-nacimiento").value;
+    const fechaNacimiento = document.getElementById("usr-fecha-nacimiento").value;
+    const inputPass = document.getElementById("usr-password");
+    const password = inputPass ? inputPass.value.trim() : "";
     const tipo = document.getElementById("usr-tipo").value;
     const region = document.getElementById("usr-region").value;
     const comuna = document.getElementById("usr-comuna").value;
     const direccion = document.getElementById("usr-direccion").value.trim();
     const esEdicion = document.getElementById("usr-es-edicion").value === "true";
 
-// Validaciones de Usuario
+    // Validaciones
     if (!validarRUN(run)) {
         Swal.fire("RUN Inválido", "El RUN ingresado no es válido. Escríbelo sin puntos ni guión.", "error");
         return;
@@ -319,27 +358,49 @@ function guardarUsuario(e) {
         return;
     }
 
-    let usuarios = JSON.parse(localStorage.getItem("usuariosSistema")) || [];
+    if (!esEdicion && inputPass && (password.length < 4 || password.length > 10)) {
+        Swal.fire("Contraseña Inválida", "La contraseña es obligatoria al crear un usuario y debe tener entre 4 y 10 caracteres.", "error");
+        return;
+    }
+
+    if (password && (password.length < 4 || password.length > 10)) {
+        Swal.fire("Contraseña Inválida", "La contraseña debe tener entre 4 y 10 caracteres.", "error");
+        return;
+    }
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios_clstore")) || [];
 
     if (!esEdicion && usuarios.some(u => u.run === run)) {
         Swal.fire("Error", "Ya existe un usuario con este RUN.", "error");
         return;
     }
 
-    const nuevoUsr = { run, nombre, apellidos, correo, fechaNac, tipo, region, comuna, direccion };
+    if (!esEdicion && usuarios.some(u => u.correo && u.correo.toLowerCase() === correo.toLowerCase())) {
+        Swal.fire("Error", "Ya existe un usuario con este correo.", "error");
+        return;
+    }
+
+    const nuevoUsr = { run, nombre, apellidos, correo, fechaNacimiento, tipo, region, comuna, direccion };
 
     if (esEdicion) {
         const idx = usuarios.findIndex(u => u.run === run);
-        if (idx !== -1) usuarios[idx] = nuevoUsr;
+        if (idx !== -1) {
+            nuevoUsr.password = password ? password : usuarios[idx].password;
+            usuarios[idx] = nuevoUsr;
+        }
     } else {
+        nuevoUsr.password = password;
         usuarios.push(nuevoUsr);
     }
 
-    localStorage.setItem("usuariosSistema", JSON.stringify(usuarios));
+    localStorage.setItem("usuarios_clstore", JSON.stringify(usuarios));
     renderizarTablaUsuarios();
 
-    const modal = bootstrap.Modal.getInstance(document.getElementById("modalUsuario"));
+    const modalElement = document.getElementById("modalUsuario");
+    const modal = bootstrap.Modal.getInstance(modalElement);
     if (modal) modal.hide();
+
+    document.getElementById("form-usuario").reset();
 
     Swal.fire("¡Éxito!", "Usuario registrado/modificado correctamente.", "success");
 }
@@ -354,30 +415,32 @@ function eliminarUsuario(run) {
         confirmButtonText: "Sí, eliminar"
     }).then((result) => {
         if (result.isConfirmed) {
-            let usuarios = JSON.parse(localStorage.getItem("usuariosSistema")) || [];
+            let usuarios = JSON.parse(localStorage.getItem("usuarios_clstore")) || [];
             usuarios = usuarios.filter(u => u.run !== run);
-            localStorage.setItem("usuariosSistema", JSON.stringify(usuarios));
+            localStorage.setItem("usuarios_clstore", JSON.stringify(usuarios));
             renderizarTablaUsuarios();
             Swal.fire("Eliminado", "El usuario fue borrado.", "success");
         }
     });
 }
 
+
 function inicializarRegiones() {
     const selectRegion = document.getElementById("usr-region");
     if (!selectRegion) return;
 
     selectRegion.innerHTML = `<option value="">Seleccione Región</option>`;
-    regionesYComunas.forEach(item => {
+    REGIONES_Y_COMUNAS.forEach(item => {
         selectRegion.innerHTML += `<option value="${item.region}">${item.region}</option>`;
     });
 }
 
 function cargarComunas(regionNombre) {
     const selectComuna = document.getElementById("usr-comuna");
-    selectComuna.innerHTML = `<option value="">Seleccione Comuna</option>`;
+    if (!selectComuna) return;
 
-    const regionEncontrada = regionesYComunas.find(r => r.region === regionNombre);
+    selectComuna.innerHTML = `<option value="">Seleccione Comuna</option>`;
+    const regionEncontrada = REGIONES_Y_COMUNAS.find(r => r.region === regionNombre);
 
     if (regionEncontrada) {
         selectComuna.disabled = false;
@@ -386,22 +449,5 @@ function cargarComunas(regionNombre) {
         });
     } else {
         selectComuna.disabled = true;
-    }
-}
-
-// Datos iniciales para demostracion
-function inicializarDatosDemo() {
-    if (!localStorage.getItem("catalogoProductos")) {
-        const demoProductos = [
-            { id: "PROD01", nombre: "NVIDIA RTX 3080", descripcion: "Tarjeta gráfica de alta gama", precio: 450000, stock: 10, stockCritico: 2, categoria: "Componentes", imagen: "img/rtx3080.jpg" }
-        ];
-        localStorage.setItem("catalogoProductos", JSON.stringify(demoProductos));
-    }
-
-    if (!localStorage.getItem("usuariosSistema")) {
-        const demoUsuarios = [
-            { run: "19011022K", nombre: "Admin", apellidos: "Sistema", correo: "admin@duoc.cl", fechaNac: "1995-05-10", tipo: "Administrador", region: "Región Metropolitana de Santiago", comuna: "Santiago", direccion: "Av. España 8" }
-        ];
-        localStorage.setItem("usuariosSistema", JSON.stringify(demoUsuarios));
     }
 }

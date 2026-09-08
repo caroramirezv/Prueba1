@@ -7,123 +7,124 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg sticky-top admin-navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="#">
-                    <div class="brand-logo">
-                        <i class="fa-solid fa-compass fs-5"></i>
-                    </div>
-                    <span class="fw-bold text-dark fs-5 tracking-tight">Clstore</span>
-                </a>
-                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdminContent">
-                    <i class="fa-solid fa-bars fs-4 text-dark"></i>
-                </button>
 
-                <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarAdminContent">
+    <nav class="navbar navbar-expand-lg sticky-top admin-navbar bg-white border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="#">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-compass fs-5"></i>
+                </div>
+                <span class="fw-bold text-dark fs-5 tracking-tight">Clstore</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdminContent">
+                <i class="fa-solid fa-bars fs-4 text-dark"></i>
+            </button>
 
-                    <ul class="navbar-nav mx-lg-auto mb-3 mb-lg-0 nav-pills-custom gap-1">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="tab-productos" href="#" onclick="cambiarSeccion('productos')">
-                                <i class="fa-solid fa-boxes-stacked me-2"></i>Productos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="tab-usuarios" href="#" onclick="cambiarSeccion('usuarios')">
-                                <i class="fa-solid fa-users me-2"></i>Usuarios
-                            </a>
-                        </li>
-                    </ul>
-
-
-                    <div class="d-flex align-items-center gap-3">
-                        <a href="Home.html" class="btn btn-exit btn-sm rounded-pill px-3 py-2">
-                            <i class="fa-solid fa-right-from-bracket me-1"></i> Salir a Tienda
+            <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarAdminContent">
+                <ul class="navbar-nav mx-lg-auto mb-3 mb-lg-0 nav-pills-custom gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab-productos" href="#" onclick="cambiarSeccion('productos')">
+                            <i class="fa-solid fa-boxes-stacked me-2"></i>Productos
                         </a>
+                    </li>
+                    <li class="nav-item" id="li-tab-usuarios">
+                        <a class="nav-link" id="tab-usuarios" href="#" onclick="cambiarSeccion('usuarios')">
+                            <i class="fa-solid fa-users me-2"></i>Usuarios
+                        </a>
+                    </li>
+                </ul>
 
-                        <div class="vr d-none d-lg-block text-muted opacity-25" style="height: 24px;"></div>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="Home.html" class="btn btn-exit btn-sm rounded-pill px-3 py-2">
+                        <i class="fa-solid fa-right-from-bracket me-1"></i> Salir a Tienda
+                    </a>
 
-                        <div class="profile-pill d-flex align-items-center gap-2">
-                            <div class="profile-avatar">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                            <span class="fw-semibold text-secondary small">Profile</span>
+                    <div class="vr d-none d-lg-block text-muted opacity-25" style="height: 24px;"></div>
+
+                    <div class="profile-pill d-flex align-items-center gap-2">
+                        <div class="profile-avatar">
+                            <i class="fa-solid fa-user"></i>
                         </div>
+                        <span class="fw-semibold text-secondary small">Profile</span>
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-            <div class="content-body">
-                
-                <section id="seccion-productos" class="p-4">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="fw-bold m-0"><i class="fa-solid fa-boxes-stacked me-2"></i>Mantenedor de Productos</h4>
-                        <button class="btn btn-primary rounded-pill px-4" onclick="prepararCreacionProducto()">
-                            <i class="fa-solid fa-plus me-2"></i>Nuevo Producto
-                        </button>
-                    </div>
-
-                    <div class="card border-0 shadow-sm rounded-3">
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover align-middle mb-0">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>Imagen</th>
-                                            <th>Código</th>
-                                            <th>Nombre</th>
-                                            <th>Categoría</th>
-                                            <th>Precio</th>
-                                            <th>Stock</th>
-                                            <th class="text-end pe-4">Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tabla-admin-productos">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="seccion-usuarios" class="p-4 d-none">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="fw-bold m-0"><i class="fa-solid fa-users me-2"></i>Mantenedor de Usuarios</h4>
-                        <button class="btn btn-primary rounded-pill px-4" onclick="prepararCreacionUsuario()">
-                            <i class="fa-solid fa-user-plus me-2"></i>Nuevo Usuario
-                        </button>
-                    </div>
-
-                    <div class="card border-0 shadow-sm rounded-3">
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover align-middle mb-0">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>RUN</th>
-                                            <th>Nombre Completo</th>
-                                            <th>Correo</th>
-                                            <th>Tipo</th>
-                                            <th>Ubicación</th>
-                                            <th class="text-end pe-4">Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tabla-admin-usuarios">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+    <div class="content-body">
+        <section id="seccion-productos" class="p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="fw-bold m-0"><i class="fa-solid fa-boxes-stacked me-2"></i>Mantenedor de Productos</h4>
+                <button class="btn btn-primary rounded-pill px-4" 
+                        id="btn-nuevo-producto"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalProducto" 
+                        onclick="prepararCreacionProducto()">
+                    <i class="fa-solid fa-plus me-2"></i>Nuevo Producto
+                </button>
             </div>
-        </main>
+
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th class="text-end pe-4">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-admin-productos">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccion-usuarios" class="p-4 d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="fw-bold m-0"><i class="fa-solid fa-users me-2"></i>Mantenedor de Usuarios</h4>
+                <button class="btn btn-primary rounded-pill px-4" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalUsuario" 
+                        onclick="prepararCreacionUsuario()">
+                    <i class="fa-solid fa-user-plus me-2"></i>Nuevo Usuario
+                </button>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>RUN</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Correo</th>
+                                    <th>Tipo</th>
+                                    <th>Ubicación</th>
+                                    <th class="text-end pe-4">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-admin-usuarios">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-
+    <!-- MODAL PRODUCTO -->
     <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -189,6 +190,7 @@
         </div>
     </div>
 
+
     <div class="modal fade" id="modalUsuario" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -235,6 +237,12 @@
                         </div>
 
                         <div class="col-md-6">
+                            <label class="form-label fw-semibold">Contraseña *</label>
+                            <input type="password" class="form-control" id="usr-password" minlength="4" maxlength="10" placeholder="Entre 4 y 10 caracteres">
+                            <small class="text-muted" id="usr-password-hint">Requerida (entre 4 y 10 caracteres).</small>
+                        </div>
+
+                        <div class="col-md-6">
                             <label class="form-label fw-semibold">Región *</label>
                             <select class="form-select" id="usr-region" required>
                                 <option value="">Seleccione Región</option>
@@ -263,9 +271,10 @@
         </div>
     </div>
 
-    <!-- scripts visuales y anexo con archivo js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="JS/admin.js"></script>
+    <script src="js/regiones.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/insercion.js"></script>
 </body>
 </html>
